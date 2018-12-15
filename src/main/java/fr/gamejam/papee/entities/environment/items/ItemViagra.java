@@ -1,6 +1,9 @@
 package fr.gamejam.papee.entities.environment.items;
 
+<<<<<<< HEAD
 import fr.gamejam.papee.engine.graphics.GTexture;
+=======
+>>>>>>> Implement Items
 import fr.gamejam.papee.entities.PaPee;
 
 public class ItemViagra extends Item{
