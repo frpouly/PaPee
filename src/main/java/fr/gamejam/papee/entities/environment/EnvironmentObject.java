@@ -1,5 +1,6 @@
 package fr.gamejam.papee.entities.environment;
 
+import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.items.ItemType;
 
 public abstract class EnvironmentObject {
@@ -36,4 +37,6 @@ public abstract class EnvironmentObject {
         this.name = name;
         this.itemType = type;
     }
+
+    public abstract void effect(PaPee papee);
 }
