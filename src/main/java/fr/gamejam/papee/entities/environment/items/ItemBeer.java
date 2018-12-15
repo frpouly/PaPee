@@ -1,4 +1,15 @@
 package fr.gamejam.papee.entities.environment.items;
 
-public class ItemBeer {
+import fr.gamejam.papee.entities.PaPee;
+
+public class ItemBeer extends Item {
+
+    public ItemBeer(int ID, float x, float y) {
+        super(ID, x, y, ItemType.MALUS, "beer");
+    }
+
+    @Override
+    public void effect(PaPee papee) {
+
+    }
 }
