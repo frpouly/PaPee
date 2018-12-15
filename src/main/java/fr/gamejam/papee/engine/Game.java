@@ -15,12 +15,11 @@ import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import org.lwjgl.util.vector.Vector2f;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Game extends GGame {
-    public static ArrayList<GObject> objects = new ArrayList<GObject>();
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
-
     /*
         Test GUI
      */
@@ -30,7 +29,7 @@ public class Game extends GGame {
     /*
         Test button and particle
      */
-    GButton button = new GButton("Create Particle", 800, 400) {
+    GButton button = new GButton("Create Particle", 800, 400, 16) {
         @Override
         public void onClick() {
             for (int i = 0; i < 10; i++) {
@@ -44,7 +43,8 @@ public class Game extends GGame {
         }
     };
 
-
+    public void update() {
+        super.update();
         papee.getBladder().increasePeeLevel();
         // Check if Bladder is full
         if(papee.getBladder().isFull())
