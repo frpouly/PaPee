@@ -13,7 +13,6 @@ public class Bladder extends GObject {
     private float peeLevel;
     private boolean isFull;
     private float scaleY;
-
     private float increaseLevel;
 
     public boolean isFull() {
@@ -24,8 +23,10 @@ public class Bladder extends GObject {
         super(100, 10, 10, 32, 128, false);
         this.peeStartLevel = peeStartLevel;
         this.peeMaxLevel = peeMaxLevel;
+        this.peeLevel = peeStartLevel;
         this.scaleY = sizeY/peeMaxLevel;
         this.increaseLevel = INCREASE_PEE_LEVEL_BASE;
+        this.peeLevel = peeStartLevel;
     }
 
     public float getPeeStartLevel() {
@@ -60,6 +61,12 @@ public class Bladder extends GObject {
             isFull = true;
             peeLevel = peeMaxLevel;
         } else peeLevel = newPeeLevel;
+    }
+
+    public void decreasePeeLevel(float value) {
+        float newPeeLevel = peeLevel - value;
+        peeLevel = (newPeeLevel < 0) ? 0 : newPeeLevel;
+
     }
 
     @Override

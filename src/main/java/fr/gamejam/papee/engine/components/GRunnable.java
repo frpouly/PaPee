@@ -1,6 +1,5 @@
 package fr.gamejam.papee.engine.components;
 
-import fr.gamejam.papee.engine.components.GWindow;
 import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.utils.GDefines;
