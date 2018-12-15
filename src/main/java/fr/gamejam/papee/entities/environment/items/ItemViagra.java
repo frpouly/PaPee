@@ -1,10 +1,9 @@
 package fr.gamejam.papee.entities.environment.items;
 
-<<<<<<< HEAD
 import fr.gamejam.papee.engine.graphics.GTexture;
-=======
->>>>>>> Implement Items
+import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
+import fr.gamejam.papee.entities.environment.Effect;
 
 public class ItemViagra extends Item{
 
@@ -15,6 +14,9 @@ public class ItemViagra extends Item{
 
     @Override
     public void effect(PaPee papee) {
-        papee.setSpeed(0);
+        setEffect(new Effect(120));
+        getEffect().applyEffect(papee , paPee -> paPee.getBladder().setIncreaseLevel(0),
+                                 paPee -> paPee.getBladder().setIncreaseLevel(Bladder.INCREASE_PEE_LEVEL_BASE));
+        getEffect().startEffect();
     }
 }
