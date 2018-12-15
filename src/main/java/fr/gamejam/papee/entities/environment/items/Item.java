@@ -1,4 +1,9 @@
 package fr.gamejam.papee.entities.environment.items;
 
-public abstract class Item {
+import fr.gamejam.papee.entities.environment.EnvironmentObject;
+
+public abstract class Item extends EnvironmentObject {
+    public Item(String name, ItemType type) {
+        super(name, type);
+    }
 }

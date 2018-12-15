@@ -1,4 +1,15 @@
 package fr.gamejam.papee.entities.environment.items;
 
-public class ItemViagra {
+import fr.gamejam.papee.entities.PaPee;
+
+public class ItemViagra extends Item{
+
+    public ItemViagra() {
+        super("viagra", ItemType.BONUS);
+    }
+
+    @Override
+    public void effect(PaPee papee) {
+
+    }
 }
