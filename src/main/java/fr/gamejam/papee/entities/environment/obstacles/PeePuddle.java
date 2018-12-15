@@ -14,4 +14,9 @@ public class PeePuddle extends Obstacle {
     public void effect(PaPee papee) {
 
     }
+
+    @Override
+    public boolean isRigid(){
+        return false;
+    }
 }

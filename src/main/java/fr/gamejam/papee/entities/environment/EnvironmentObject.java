@@ -6,7 +6,7 @@ import fr.gamejam.papee.entities.environment.items.ItemType;
 
 public abstract class EnvironmentObject extends GObject {
 
-    private float effectTime;
+    private Effect effect;
     private ItemType itemType;
     private String name;
 
@@ -32,12 +32,12 @@ public abstract class EnvironmentObject extends GObject {
         this.itemType = itemType;
     }
 
-    public float getEffectTime() {
-        return effectTime;
+    public Effect getEffect() {
+        return effect;
     }
 
-    public void setEffectTime(float effectTime) {
-        this.effectTime = effectTime;
+    public void setEffect(Effect effectTime) {
+        this.effect = effectTime;
     }
 
     public abstract void effect(PaPee papee);

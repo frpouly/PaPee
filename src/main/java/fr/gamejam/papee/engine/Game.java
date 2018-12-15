@@ -9,6 +9,7 @@ import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
+import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import org.lwjgl.util.vector.Vector2f;
@@ -18,14 +19,14 @@ import java.util.Random;
 
 public class Game extends GGame {
     public static ArrayList<GObject> objects = new ArrayList<GObject>();
+    public static ArrayList<Effect> effects = new ArrayList<Effect>();
 
     /*
         Test GUI
      */
     Item itemViagra = new ItemViagra(1,500, 500);
 
-    PaPee papee = new PaPee(0, 0);
-    Bladder bladder = new Bladder(10, 100);
+    PaPee papee = new PaPee(0, 0, new Bladder(10, 100));
     /*
         Test button and particle
      */
@@ -60,21 +61,22 @@ public class Game extends GGame {
                 }
             }
         }
+
+        papee.getBladder().increasePeeLevel();
+        // Check if Bladder is full
+        if(papee.getBladder().isFull())
+        {
+            // GAME OVER
+        }
     }
 
     public void render() {
         /*
             Rendering all the game objects
          */
-        bladder.increasePeeLevel(0.01f);
         for (int i = 0; i < objects.size(); i++) {
             GObject o = objects.get(i);
             o.render();
-        }
-        // Check if Bladder is full
-        if(bladder.isFull())
-        {
-            // GAME OVER
         }
     }
 }
