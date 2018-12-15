@@ -1,7 +1,6 @@
 package fr.gamejam.papee.engine.utils;
 
 public class GDefines {
-
     /**
      * Constants
      */
@@ -27,4 +26,13 @@ public class GDefines {
     public static final float[] YELLOW = new float[] { 228f / 255f, 219f / 255f, 81f / 255f, 1.0f };
     public static final float[] PURPLE = new float[] { 134f / 255f, 93f / 255f, 147f / 255f, 1.0f };
     public static final float[] GRAY = new float[] { 145f / 255f, 176f / 255f, 154f / 255f, 1.0f };
+
+    /**
+     * Resources
+     */
+
+    public static final String ASSETS = "/assets/";
+    public static final String FONTS = ASSETS + "fonts/";
+    public static final String LANG = ASSETS + "lang/";
+    public static final String TEXTURES = ASSETS + "textures/";
 }
