@@ -47,6 +47,14 @@ public class Bladder extends GObject {
             this.peeMaxLevel = peeMaxLevel;
     }
 
+    public float getPeeLevel() {
+        return peeLevel;
+    }
+
+    public void setPeeLevel(float peeLevel) {
+        this.peeLevel = peeLevel;
+    }
+
     public float getIncreaseLevel() {
         return increaseLevel;
     }
