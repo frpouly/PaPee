@@ -11,6 +11,9 @@ public class GDefines {
     public static final int WIDTH = 1200;
     public static final int HEIGHT = 700;
 
+    public static int MAP_HEIGHT = 0;
+    public static int MAP_WIDTH = 0;
+
     public static final int FPS = 60;
 
     /**

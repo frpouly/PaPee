@@ -1,6 +1,7 @@
 package fr.gamejam.papee.game.level;
 
 import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.engine.utils.Registry;
 
 import javax.json.Json;
@@ -16,6 +17,8 @@ public class LevelLoader {
     private String path;
     public static Registry registry = new Registry();
 
+    private Tile[][] tiles;
+
     public LevelLoader(String path) {
         this.path = path;
         loadLevel(path);
@@ -27,9 +30,13 @@ public class LevelLoader {
         int mapWidth = layer.getJsonObject(0).getInt("width");
         int mapHeight = layer.getJsonObject(0).getInt("height");
 
+        GDefines.MAP_WIDTH = mapWidth;
+        GDefines.MAP_HEIGHT = mapHeight;
+
+        this.tiles = new Tile[mapWidth][mapHeight];
+
         for (int i = 0; i < mapHeight; i++) {
             for (int j = 0; j < mapWidth; j++) {
-
                 id = layer.getJsonObject(0).getJsonArray("data").getInt(i * mapWidth + j);
 
                 GObject ctArgs = null;
@@ -40,6 +47,7 @@ public class LevelLoader {
                     //Constructor constructor = c.getConstructor(new Class[]{int.class,float.class,float.class});
                     //ctArgs = (GObject) constructor.newInstance(id, i * 32, j * 32);
                     Tile t = new Tile(id - 1, j * 32, i * 32, false);
+                    tiles[j][i] = t;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -59,5 +67,9 @@ public class LevelLoader {
             e.printStackTrace();
         }
         return jsonObject;
+    }
+
+    public Tile[][] getTiles() {
+        return tiles;
     }
 }

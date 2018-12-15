@@ -49,9 +49,18 @@ public class PaPee extends GObject {
 
     @Override
     public void update() {
+        getBladder().increasePeeLevel();
+
         move();
         manageCollision();
         manageEffect();
+    }
+
+    @Override
+    public void render() {
+        super.render();
+
+        bladder.render();
     }
 
     public float getSpeed() {

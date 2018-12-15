@@ -16,6 +16,7 @@ import fr.gamejam.papee.entities.environment.items.ItemBeer;
 import fr.gamejam.papee.entities.environment.items.ItemNitro;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import fr.gamejam.papee.game.level.LevelLoader;
+import fr.gamejam.papee.map.Map;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.ArrayList;
@@ -28,16 +29,18 @@ public class Game extends GGame {
      */
     Item itemViagra;
 
-
-
-    private PaPee papee;
+    private Map map;
 
     public Game()
     {
         objects.clear();
         LevelLoader l = new LevelLoader("/levels/level_1.json");
         itemViagra = new ItemViagra(1,500, 500);
-        papee = new PaPee(5, 5, new Bladder(10, 100));
+        PaPee papee = new PaPee(5, 5, new Bladder(10, 100));
+        map = new Map(papee, l.getTiles());
+
+        System.out.println(map.getPapee().getSpeed());
+
         new GButton("Create Particle", 800, 400, 16) {
             @Override
             public void onClick() {
@@ -53,14 +56,23 @@ public class Game extends GGame {
         };
     }
 
+    @Override
     public void update() {
         super.update();
-        papee.getBladder().increasePeeLevel();
+
+        map.update();
 
         // Check if Bladder is full
-        if(papee.getBladder().isFull())
+        if(map.getPapee().getBladder().isFull())
         {
             GGame.window.start(new GameOver());
         }
+    }
+
+    @Override
+    public void render() {
+        super.render();
+
+        map.render();
     }
 }
