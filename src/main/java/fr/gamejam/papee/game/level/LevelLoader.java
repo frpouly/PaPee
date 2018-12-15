@@ -29,13 +29,17 @@ public class LevelLoader {
 
         for (int i = 0; i < mapHeight; i++) {
             for (int j = 0; j < mapWidth; j++) {
+
                 id = layer.getJsonObject(0).getJsonArray("data").getInt(i * mapWidth + j);
 
                 GObject ctArgs = null;
+                //Tile t = new Tile(id - 1, i * 16, j * 16, true);
                 try {
                     Class c = registry.get(id);
-                    Constructor constructor = c.getConstructor(new Class[]{int.class,float.class,float.class});
-                    ctArgs = (GObject) constructor.newInstance(id, i * 32, j * 32);
+                    System.out.println(id);
+                    //Constructor constructor = c.getConstructor(new Class[]{int.class,float.class,float.class});
+                    //ctArgs = (GObject) constructor.newInstance(id, i * 32, j * 32);
+                    Tile t = new Tile(id - 1, j * 32, i * 32, false);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

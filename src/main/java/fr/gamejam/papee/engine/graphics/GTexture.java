@@ -15,6 +15,7 @@ import org.lwjgl.BufferUtils;
 public class GTexture {
     public static final GTexture DEFAULT_FONT = loadTexture(GDefines.FONTS + "default_font.png");
     public static final GTexture VIAGRA_TEXTURE = loadTexture(GDefines.TEXTURES + "items/viagra.png");
+    public static final GTexture TILE_SET = loadTexture(GDefines.TEXTURES + "obstacles/obstacles_tileset.png");
 
     private int width, height;
     private int id;
