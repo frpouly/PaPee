@@ -58,53 +58,9 @@
         </dependency>
         <dependency>
             <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl-glfw</artifactId>
-            <version>${lwjgl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl-openal</artifactId>
-            <version>${lwjgl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl-opencl</artifactId>
-            <version>${lwjgl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl-opengl</artifactId>
-            <version>${lwjgl.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl</artifactId>
-            <version>${lwjgl.version}</version>
-            <classifier>${lwjgl.natives}</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl-glfw</artifactId>
-            <version>${lwjgl.version}</version>
-            <classifier>${lwjgl.natives}</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl-openal</artifactId>
-            <version>${lwjgl.version}</version>
-            <classifier>${lwjgl.natives}</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
-            <artifactId>lwjgl-opengl</artifactId>
-            <version>${lwjgl.version}</version>
-            <classifier>${lwjgl.natives}</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.lwjgl.lwjgl</groupId>
             <artifactId>lwjgl_util</artifactId>
             <version>${lwjgl.version}</version>
-            <classifier>${lwjgl.natives}</classifier>
+            <!--<classifier>${lwjgl.natives}</classifier>-->
         </dependency>
     </dependencies>
 
