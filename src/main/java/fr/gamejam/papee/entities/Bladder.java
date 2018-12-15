@@ -19,7 +19,6 @@ public class Bladder extends GObject {
         super(100, 10, 10, 32, 128, false);
         this.peeStartLevel = peeStartLevel;
         this.peeMaxLevel = peeMaxLevel;
-        this.peeLevel = peeStartLevel;
         this.scaleY = sizeY/peeMaxLevel;
         this.peeLevel = peeStartLevel;
     }

@@ -1,6 +1,6 @@
 package fr.gamejam.papee.engine.objects;
 
-import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.utils.GDefines;
@@ -33,7 +33,7 @@ public class GObject {
         this.sizeX = sizeX;
         this.sizeY= sizeY;
         this.rigid = rigid;
-        Game.objects.add(this);
+        GGame.objects.add(this);
     }
 
     /**
