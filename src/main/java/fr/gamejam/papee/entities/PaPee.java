@@ -27,10 +27,10 @@ public class PaPee extends GObject {
     }
 
     private void move() {
-        if(Keyboard.isKeyDown(Keyboard.KEY_W)) {
+        if(Keyboard.isKeyDown(Keyboard.KEY_Z)) {
             dy -= speed;
         }
-        if(Keyboard.isKeyDown(Keyboard.KEY_A)) {
+        if(Keyboard.isKeyDown(Keyboard.KEY_Q)) {
             dx -= speed;
         }
         if(Keyboard.isKeyDown(Keyboard.KEY_S)) {
@@ -79,7 +79,6 @@ public class PaPee extends GObject {
     @Override
     public void render() {
         super.render();
-
         bladder.render();
     }
 
