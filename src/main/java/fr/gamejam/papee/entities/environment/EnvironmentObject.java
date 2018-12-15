@@ -1,6 +1,5 @@
 package fr.gamejam.papee.entities.environment;
 
-import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.items.ItemType;
