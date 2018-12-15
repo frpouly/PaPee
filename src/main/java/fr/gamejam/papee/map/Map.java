@@ -30,17 +30,37 @@ public class Map {
     }
 
     public void update() {
-        int startX = 0;
-        int startY = 0;
-        int endX = GDefines.MAP_WIDTH;
-        int endY = GDefines.MAP_HEIGHT;
+        System.out.println("NIQUE TES GRANDS MORTS");
 
-        int papeeX = (int) papee.getX();
-        int papeeY = (int) papee.getY();
+        int papeeX = (int) papee.getX() / GDefines.OBJECT_WIDTH;
+        int papeeY = (int) papee.getY() / GDefines.OBJECT_HEIGHT;
 
+        int xMaxTiles = (GDefines.WIDTH / GDefines.TILE_WIDTH);
+        int yMaxTiles = (GDefines.HEIGHT / GDefines.TILE_HEIGHT);
+
+        int startX = papeeX - (xMaxTiles / 2);
+        int endX = papeeX + (xMaxTiles / 2);
+
+        int startY = papeeY + (yMaxTiles / 2);
+        int endY = papeeY - (yMaxTiles / 2);
+
+        System.out.println("xMaxTiles: " + xMaxTiles);
+        System.out.println("papeeX: " + papeeX);
+        System.out.println("startX: " + startX);
+        System.out.println("endX: " + endX);
+        /*
+        System.out.println("yMaxTiles: " + yMaxTiles);
+        System.out.println("papeeY: " + papeeY);
+        System.out.println("startY: " + startY);
+        System.out.println("endY: " + endY);
+        */
         for (int x = startX; x < endX; x++) {
             for (int y = startY; y < endY; y++) {
-                tiles[x][y].update();
+                try {
+                    tiles[x][y].update();
+                } catch (ArrayIndexOutOfBoundsException ex) {
+                    // ignore
+                }
             }
         }
 
@@ -48,9 +68,25 @@ public class Map {
     }
 
     public void render() {
-        for (int x = 0; x < GDefines.MAP_WIDTH; x++) {
-            for (int y = 0; y < GDefines.MAP_HEIGHT; y++) {
-                tiles[x][y].render();
+        int papeeX = papee.getPosX();
+        int papeeY = papee.getPosY();
+
+        int xMaxTiles = (GDefines.WIDTH / GDefines.TILE_WIDTH);
+        int yMaxTiles = (GDefines.HEIGHT / GDefines.TILE_HEIGHT);
+
+        int startX = papeeX - (xMaxTiles / 2);
+        int endX = papeeX + (xMaxTiles / 2);
+
+        int startY = papeeY + (yMaxTiles / 2);
+        int endY = papeeY - (yMaxTiles / 2);
+
+        for (int x = startX; x < endX; x++) {
+            for (int y = startY; y < endY; y++) {
+                try {
+                    tiles[x][y].render();
+                } catch (ArrayIndexOutOfBoundsException ex) {
+                    // ignore
+                }
             }
         }
 

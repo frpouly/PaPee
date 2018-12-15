@@ -11,6 +11,12 @@ public class GDefines {
     public static final int WIDTH = 1200;
     public static final int HEIGHT = 700;
 
+    public static final int OBJECT_WIDTH = 32;
+    public static final int OBJECT_HEIGHT = 32;
+
+    public static final int TILE_WIDTH = 32;
+    public static final int TILE_HEIGHT = 32;
+
     public static int MAP_HEIGHT = 0;
     public static int MAP_WIDTH = 0;
 

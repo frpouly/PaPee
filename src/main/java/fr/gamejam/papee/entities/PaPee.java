@@ -2,6 +2,7 @@ package fr.gamejam.papee.entities;
 
 import fr.gamejam.papee.engine.Game;
 import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
@@ -61,6 +62,14 @@ public class PaPee extends GObject {
         super.render();
 
         bladder.render();
+    }
+
+    public int getPosX() {
+        return (int) (getX() / GDefines.OBJECT_WIDTH);
+    }
+
+    public int getPosY() {
+        return (int) (getY() / GDefines.OBJECT_HEIGHT);
     }
 
     public float getSpeed() {

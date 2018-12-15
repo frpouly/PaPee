@@ -58,7 +58,7 @@ public class Game extends GGame {
 
     @Override
     public void update() {
-        super.update();
+        //super.update();
 
         map.update();
 
@@ -71,7 +71,7 @@ public class Game extends GGame {
 
     @Override
     public void render() {
-        super.render();
+        //super.render();
 
         map.render();
     }
