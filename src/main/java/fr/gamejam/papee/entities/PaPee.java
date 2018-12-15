@@ -36,6 +36,10 @@ public class PaPee extends GObject {
             dx += speed;
         }
 
+        if(isOutOfWindowBound()) {
+            dx = -dx;
+            dy = -dy;
+        }
         x += dx;
         y += dy;
 

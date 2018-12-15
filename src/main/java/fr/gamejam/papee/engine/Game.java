@@ -31,7 +31,7 @@ public class Game extends GGame {
     {
         objects.clear();
         itemViagra = new ItemViagra(1,500, 500);
-        papee = new PaPee(0, 0, new Bladder(10, 100));
+        papee = new PaPee(5, 5, new Bladder(10, 100));
         new GButton("Create Particle", 800, 400, 16) {
             @Override
             public void onClick() {
