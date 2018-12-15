@@ -9,6 +9,7 @@ public class Bladder extends GObject {
     private float peeMaxLevel;
     private float peeLevel;
     private boolean isFull;
+    private float scaleY;
 
     public boolean isFull() {
         return isFull;
@@ -18,6 +19,8 @@ public class Bladder extends GObject {
         super(100, 10, 10, 32, 128, false);
         this.peeStartLevel = peeStartLevel;
         this.peeMaxLevel = peeMaxLevel;
+        this.peeLevel = peeStartLevel;
+        this.scaleY = sizeY/peeMaxLevel;
         this.peeLevel = peeStartLevel;
     }
 
@@ -47,8 +50,7 @@ public class Bladder extends GObject {
         } else peeLevel = newPeeLevel;
     }
 
-    public void decreasePeeLevel(float value)
-    {
+    public void decreasePeeLevel(float value) {
         float newPeeLevel = peeLevel - value;
         peeLevel = (newPeeLevel < 0) ? 0 : newPeeLevel;
     }
@@ -56,6 +58,6 @@ public class Bladder extends GObject {
     @Override
     public void render() {
         GGraphics.renderQuad(x, y, sizeX, sizeY, GDefines.GRAY);
-        GGraphics.renderQuad(x, y + 50, sizeX, sizeY - 50, GDefines.LIGHT_BLUE);
+        GGraphics.renderQuad(x, y + (peeMaxLevel - peeLevel) * scaleY , sizeX, peeLevel * scaleY, GDefines.YELLOW);
     }
 }
