@@ -12,6 +12,8 @@ import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.items.Item;
+import fr.gamejam.papee.entities.environment.items.ItemBeer;
+import fr.gamejam.papee.entities.environment.items.ItemNitro;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import org.lwjgl.util.vector.Vector2f;
 

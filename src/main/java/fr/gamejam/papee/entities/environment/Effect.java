@@ -31,11 +31,21 @@ public class Effect {
         this.startEffect = startEffect;
     }
 
+    public void applyEffect(PaPee paPee, IEffect startEffect) {
+        applyEffect(paPee, startEffect, null);
+    }
+
     public void startEffect() {
-        startEffect.effect(papee);
+        if (startEffect == null) {
+            stopEffect = null;
+        } else {
+            startEffect.effect(papee);
+        }
     }
 
     public void stopEffect() {
-        stopEffect.effect(papee);
+        if (stopEffect != null) {
+            stopEffect.effect(papee);
+        }
     }
 }
