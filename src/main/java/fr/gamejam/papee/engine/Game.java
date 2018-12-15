@@ -23,11 +23,6 @@ public class Game extends GGame {
         Test GUI
      */
     Item itemViagra = new ItemViagra(1,50, 50);
-    GGui gui1 = new GGui(0, "testGUI1", 10, 120, 300, 100);
-    GGui gui2 = new GGui(0, "testGUI2", 10, 10, 300, 100);
-
-
-    public static ArrayList<GObject> objects = new ArrayList<GObject>();
 
     PaPee papee = new PaPee(0, 0);
     Bladder bladder = new Bladder(10, 100);
