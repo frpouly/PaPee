@@ -12,6 +12,6 @@ public class ItemViagra extends Item{
 
     @Override
     public void effect(PaPee papee) {
-
+        papee.setSpeed(0);
     }
 }

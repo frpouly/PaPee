@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class Game extends GGame {
     public static ArrayList<GObject> objects = new ArrayList<GObject>();
-
+    
     /*
         Test GUI
      */

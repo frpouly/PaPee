@@ -1,7 +1,14 @@
 package fr.gamejam.papee.entities;
 
+import fr.gamejam.papee.engine.Game;
 import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.entities.environment.EnvironmentObject;
+import fr.gamejam.papee.entities.environment.items.Item;
+import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import org.lwjgl.input.Keyboard;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class PaPee extends GObject {
 
@@ -36,6 +43,7 @@ public class PaPee extends GObject {
     @Override
     public void update() {
         move();
+        manageCollision();
     }
 
     public float getSpeed() {
@@ -52,5 +60,22 @@ public class PaPee extends GObject {
 
     public void setDrag(float drag) {
         this.drag = drag;
+    }
+
+    private void manageCollision() {
+        Iterator<GObject> iterator = Game.objects.iterator();
+
+        while(iterator.hasNext()) {
+            GObject o = iterator.next();
+            if(o instanceof EnvironmentObject) {
+                EnvironmentObject obj = ((EnvironmentObject)o);
+                if(isCollision(obj)) {
+                    obj.effect(this);
+                    if(o instanceof Item) {
+                        iterator.remove();
+                    }
+                }
+            }
+        }
     }
 }
