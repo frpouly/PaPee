@@ -3,7 +3,6 @@ package fr.gamejam.papee.entities;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
-import sun.awt.SunHints;
 
 public class Bladder extends GObject {
 
@@ -13,7 +12,7 @@ public class Bladder extends GObject {
     private float peeMaxLevel;
     private float peeLevel;
     private boolean isFull;
-
+    private float scaleY;
     private float increaseLevel;
 
     public boolean isFull() {
@@ -27,6 +26,7 @@ public class Bladder extends GObject {
         this.peeLevel = peeStartLevel;
         this.scaleY = sizeY/peeMaxLevel;
         this.increaseLevel = INCREASE_PEE_LEVEL_BASE;
+        this.peeLevel = peeStartLevel;
     }
 
     public float getPeeStartLevel() {

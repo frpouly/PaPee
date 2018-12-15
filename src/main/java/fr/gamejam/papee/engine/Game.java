@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Game extends GGame {
-
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
     /*
         Test GUI
