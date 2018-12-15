@@ -50,6 +50,7 @@
         </profile>
     </profiles>
 
+    <!--
     <dependencies>
         <dependency>
             <groupId>org.lwjgl.lwjgl</groupId>
@@ -60,9 +61,10 @@
             <groupId>org.lwjgl.lwjgl</groupId>
             <artifactId>lwjgl_util</artifactId>
             <version>${lwjgl.version}</version>
-            <!--<classifier>${lwjgl.natives}</classifier>-->
+            <classifier>${lwjgl.natives}</classifier>
         </dependency>
     </dependencies>
+    -->
 
     <build>
         <plugins>
