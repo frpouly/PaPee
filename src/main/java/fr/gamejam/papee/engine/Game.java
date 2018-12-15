@@ -6,6 +6,8 @@ import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.guis.GGui;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.entities.environment.items.Item;
+import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class Game extends GGame {
     /*
         Test GUI
      */
+    Item itemViagra = new ItemViagra(1,50, 50);
     GGui gui1 = new GGui(0, "testGUI1", 10, 120, 300, 100);
     GGui gui2 = new GGui(0, "testGUI2", 10, 10, 300, 100);
 

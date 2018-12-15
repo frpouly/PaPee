@@ -4,8 +4,8 @@ import fr.gamejam.papee.entities.PaPee;
 
 public class ItemViagra extends Item{
 
-    public ItemViagra() {
-        super("viagra", ItemType.BONUS);
+    public ItemViagra(int ID, float x, float y) {
+        super(ID, x, y, ItemType.BONUS, "viagra");
     }
 
     @Override
