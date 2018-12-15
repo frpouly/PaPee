@@ -1,7 +1,8 @@
 package fr.gamejam.papee.entities;
 
+import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.objects.GObject;
-import sun.awt.SunHints;
+import fr.gamejam.papee.engine.utils.GDefines;
 
 public class Bladder extends GObject {
     private float peeStartLevel;
@@ -50,5 +51,11 @@ public class Bladder extends GObject {
     {
         float newPeeLevel = peeLevel - value;
         peeLevel = (newPeeLevel < 0) ? 0 : newPeeLevel;
+    }
+
+    @Override
+    public void render() {
+        GGraphics.renderQuad(x, y, sizeX, sizeY, GDefines.GRAY);
+        GGraphics.renderQuad(x, y + 50, sizeX, sizeY - 50, GDefines.LIGHT_BLUE);
     }
 }
