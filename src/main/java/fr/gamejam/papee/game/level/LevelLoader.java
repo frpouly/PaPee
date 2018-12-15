@@ -45,7 +45,12 @@ public class LevelLoader {
                     Class c = registry.get(id);
                     //Constructor constructor = c.getConstructor(new Class[]{int.class,float.class,float.class});
                     //ctArgs = (GObject) constructor.newInstance(id, i * 32, j * 32);
-                    Tile t = new Tile(id - 1, j * GDefines.TILE_WIDTH, i * GDefines.TILE_HEIGHT, false);
+                    Tile t;
+                    if(id - 1 == 6) {
+                        t = new Tile(id - 1, j * GDefines.TILE_WIDTH, i * GDefines.TILE_HEIGHT, false);
+                    } else {
+                        t = new Tile(id - 1, j * GDefines.TILE_WIDTH, i * GDefines.TILE_HEIGHT, true);
+                    }
                     tiles[j][i] = t;
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -7,13 +7,16 @@ import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
+import fr.gamejam.papee.game.level.LevelLoader;
+import fr.gamejam.papee.game.level.Tile;
 import org.lwjgl.input.Keyboard;
 
+import java.awt.*;
 import java.util.Iterator;
 import java.util.List;
 
 public class PaPee extends GObject {
-
+    //0.93f
     private float drag = 0.93f;
     private float speed = 1f, dx = 0.0f, dy = 0.0f;
     private Bladder bladder;
@@ -41,11 +44,27 @@ public class PaPee extends GObject {
             dx = -dx;
             dy = -dy;
         }
+
+        if(isCollisionWithWall()) {
+            dx = -dx;
+            dy = -dy;
+        }
+
         x += dx;
         y += dy;
 
         dx *= drag;
         dy *= drag;
+    }
+
+    private boolean isCollisionWithWall() {
+        Tile[][] tmp = Game.level.getTiles();
+
+        if (!this.getBounds().intersects(new Rectangle(sizeX, sizeY, tmp[getPosX()][getPosY()].getSizeX(), tmp[getPosX()][getPosY()].getSizeX())) && tmp[getPosX()][getPosY()].isRigid()) {
+            System.out.println("Tap");
+            return true;
+        }
+        return false;
     }
 
     @Override

@@ -24,6 +24,8 @@ import java.util.Random;
 
 public class Game extends GGame {
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
+    public static LevelLoader level;
+
     /*
         Test GUI
      */
@@ -34,10 +36,10 @@ public class Game extends GGame {
     public Game()
     {
         objects.clear();
-        LevelLoader l = new LevelLoader("/levels/level_1.json");
+        level = new LevelLoader("/levels/level1.json");
         itemViagra = new ItemViagra(1,500, 500);
-        PaPee papee = new PaPee(5, 5, new Bladder(10, 100));
-        map = new Map(papee, l.getTiles());
+        PaPee papee = new PaPee(100, 100, new Bladder(10, 100));
+        map = new Map(papee, level.getTiles());
 
         System.out.println(map.getPapee().getSpeed());
 
