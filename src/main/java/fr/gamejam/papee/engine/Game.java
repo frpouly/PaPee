@@ -18,11 +18,11 @@ import java.util.Random;
 
 public class Game extends GGame {
     public static ArrayList<GObject> objects = new ArrayList<GObject>();
-    
+
     /*
         Test GUI
      */
-    Item itemViagra = new ItemViagra(1,50, 50);
+    Item itemViagra = new ItemViagra(1,500, 500);
 
     PaPee papee = new PaPee(0, 0);
     Bladder bladder = new Bladder(10, 100);
