@@ -38,7 +38,7 @@ public class GParticle extends GObject {
     @Override
     public void render() {
         if(texture != null) {
-            GGraphics.renderOffsetImage(texture, x, y, sizeX, sizeY, color, ID * 128, 0, 128, 128);
+            GGraphics.renderImage(texture, x, y, sizeX, sizeY, color);
         } else {
             GGraphics.renderQuad(x, y, sizeX, sizeY, color);
         }

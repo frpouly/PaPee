@@ -1,13 +1,20 @@
 package fr.gamejam.papee.entities.environment;
 
+import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.items.ItemType;
 
-public abstract class EnvironmentObject {
+public abstract class EnvironmentObject extends GObject {
 
     private float effectTime;
     private ItemType itemType;
     private String name;
+
+    public EnvironmentObject(int ID, float x, float y, int sizeX, int sizeY, boolean rigid, ItemType itemType, String name) {
+        super(ID, x, y, sizeX, sizeY, rigid);
+        this.itemType = itemType;
+        this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -31,11 +38,6 @@ public abstract class EnvironmentObject {
 
     public void setEffectTime(float effectTime) {
         this.effectTime = effectTime;
-    }
-
-    public EnvironmentObject(String name, ItemType type) {
-        this.name = name;
-        this.itemType = type;
     }
 
     public abstract void effect(PaPee papee);

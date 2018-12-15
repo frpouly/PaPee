@@ -13,7 +13,8 @@ import fr.gamejam.papee.engine.utils.GDefines;
 import org.lwjgl.BufferUtils;
 
 public class GTexture {
-    public static final GTexture default_font = loadTexture(GDefines.FONTS + "default_font.png");
+    public static final GTexture DEFAULT_FONT = loadTexture(GDefines.FONTS + "default_font.png");
+    public static final GTexture VIAGRA_TEXTURE = loadTexture(GDefines.TEXTURES + "items/viagra.png");
 
     private int width, height;
     private int id;
