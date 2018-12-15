@@ -13,7 +13,7 @@ public class ItemViagra extends Item {
 
     @Override
     public void effect(PaPee papee) {
-        setEffect(new Effect(120));
+        setEffect(new Effect(180));
         getEffect().applyEffect(papee , paPee -> paPee.getBladder().setIncreaseLevel(0),
                                  paPee -> paPee.getBladder().setIncreaseLevel(Bladder.INCREASE_PEE_LEVEL_BASE));
         getEffect().startEffect();

@@ -102,7 +102,6 @@ public class PaPee extends GObject {
             } else {
                 effect.setEffectTime(effect.getEffectTime() - 1);
             }
-            System.out.println(effect.getEffectTime());
         }
     }
 }

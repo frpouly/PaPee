@@ -55,12 +55,16 @@ public class Bladder extends GObject {
         this.increaseLevel = increaseLevel;
     }
 
-    public void increasePeeLevel() {
+    public void increasePeeLevel(float increaseLevel) {
         float newPeeLevel = peeLevel + increaseLevel;
         if(newPeeLevel >= peeMaxLevel) {
             isFull = true;
             peeLevel = peeMaxLevel;
         } else peeLevel = newPeeLevel;
+    }
+
+    public void increasePeeLevel() {
+        this.increasePeeLevel(increaseLevel);
     }
 
     @Override

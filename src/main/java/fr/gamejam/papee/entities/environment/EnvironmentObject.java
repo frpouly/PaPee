@@ -5,7 +5,6 @@ import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.items.ItemType;
 
 public abstract class EnvironmentObject extends GObject {
-
     private Effect effect;
     private ItemType itemType;
     private String name;

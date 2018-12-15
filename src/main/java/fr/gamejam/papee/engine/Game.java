@@ -11,6 +11,7 @@ import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.items.Item;
+import fr.gamejam.papee.entities.environment.items.ItemBeer;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -25,6 +26,7 @@ public class Game extends GGame {
         Test GUI
      */
     Item itemViagra = new ItemViagra(1,500, 500);
+    Item itemBeer = new ItemBeer(2,300, 300);
 
     PaPee papee = new PaPee(0, 0, new Bladder(10, 100));
     /*
