@@ -4,16 +4,16 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL12.*;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import javax.imageio.ImageIO;
 
+import fr.gamejam.papee.engine.utils.GDefines;
 import org.lwjgl.BufferUtils;
 
 public class GTexture {
-    public static final GTexture default_font = loadTexture("/fonts/default_font.png");
+    public static final GTexture default_font = loadTexture(GDefines.FONTS + "default_font.png");
 
     private int width, height;
     private int id;
@@ -31,7 +31,7 @@ public class GTexture {
     public static GTexture loadTexture(String path) {
         BufferedImage image = null;
         try {
-            image = ImageIO.read(GTexture.class.getResourceAsStream(path));
+            image = ImageIO.read(GTexture.class.getResource(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
