@@ -6,12 +6,17 @@ import fr.gamejam.papee.entities.environment.items.ItemType;
 public class PeePuddle extends Obstacle {
 
     public PeePuddle(int ID, float x, float y) {
-        super(ID, x, y, ItemType.MALUS, "PeePuddle");
+        super(ID, x, y, ItemType.MALUS, "pee_puddle");
     }
 
 
     @Override
     public void effect(PaPee papee) {
 
+    }
+
+    @Override
+    public boolean isRigid(){
+        return false;
     }
 }

@@ -1,6 +1,6 @@
 package fr.gamejam.papee.engine.objects;
 
-import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.utils.GDefines;
@@ -18,38 +18,35 @@ public class GObject {
     protected GTexture texture;
 
     /**
-     * @param ID the ID of the object
-     * @param x the x position
-     * @param y the y position
+     * @param ID    the ID of the object
+     * @param x     the x position
+     * @param y     the y position
      * @param sizeX the sizeX
      * @param sizeY the sizeY
      * @param rigid the boolean that indicate if the object is rigid or no
-     * Game object with dimensions ID and rigidity
+     *              Game object with dimensions ID and rigidity
      */
     public GObject(int ID, float x, float y, int sizeX, int sizeY, boolean rigid) {
         this.ID = ID;
         this.x = x;
         this.y = y;
         this.sizeX = sizeX;
-        this.sizeY= sizeY;
+        this.sizeY = sizeY;
         this.rigid = rigid;
-        Game.objects.add(this);
+        GGame.objects.add(this);
     }
 
     /**
      * Update the game object
      */
     public void update() {
-        if(isRigid()) {
-            y += 9.81f;
-        }
     }
 
     /**
      * Render the game object
      */
     public void render() {
-        if(texture != null) {
+        if (texture != null) {
             GGraphics.renderImage(texture, x, y, sizeX, sizeY, GDefines.WHITE);
         } else {
             GGraphics.renderQuad(x, y, sizeX, sizeY, GDefines.WHITE);
@@ -61,10 +58,8 @@ public class GObject {
      * @return true if o collide with this object false if not
      */
     public boolean isCollision(GObject o) {
-        if(o.isRigid()) {
-            if (this.getBounds().intersects(o.getBounds())) {
-                return true;
-            }
+        if (this.getBounds().intersects(o.getBounds())) {
+            return true;
         }
         return false;
     }
