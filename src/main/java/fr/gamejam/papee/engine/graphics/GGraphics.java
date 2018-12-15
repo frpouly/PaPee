@@ -21,7 +21,7 @@ public class GGraphics {
     public static void renderText(String text, float x, float y, int size, float[] color) {
         text = text.toLowerCase();
         glEnable(GL_TEXTURE_2D);
-        GTexture.default_font.bind();
+        GTexture.DEFAULT_FONT.bind();
         glBegin(GL_QUADS);
         glColor4f(color[0], color[1], color[2], color[3]);
         for (int i = 0; i < text.length(); i++) {
@@ -31,7 +31,7 @@ public class GGraphics {
         }
         glColor4f(1, 1, 1, 1);
         glEnd();
-        GTexture.default_font.unbind();
+        GTexture.DEFAULT_FONT.unbind();
         glDisable(GL_TEXTURE_2D);
     }
 
