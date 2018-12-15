@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.gamejam</groupId>
-    <artifactId>temp</artifactId>
+    <artifactId>papee</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>temp</name>
-    <description>Temp</description>
+    <name>papee</name>
+    <description>Papee</description>
 
     <properties>
         <lwjgl.version>2.9.3</lwjgl.version>
@@ -97,6 +97,12 @@
         <dependency>
             <groupId>org.lwjgl.lwjgl</groupId>
             <artifactId>lwjgl-opengl</artifactId>
+            <version>${lwjgl.version}</version>
+            <classifier>${lwjgl.natives}</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.lwjgl.lwjgl</groupId>
+            <artifactId>lwjgl_util</artifactId>
             <version>${lwjgl.version}</version>
             <classifier>${lwjgl.natives}</classifier>
         </dependency>
