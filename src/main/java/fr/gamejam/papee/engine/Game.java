@@ -53,7 +53,7 @@ public class Game extends GGame {
         map = new Map(papee, l.getTiles());
         papee.setMap(map);
 
-        listUI.add(new UIBladder(papee.getBladder()));
+        //listUI.add(new UIBladder(papee.getBladder()));
         listUI.add(new UIMiniMap(papee, toilets));
 
         new GButton("Create Particle", 800, 400, 16) {

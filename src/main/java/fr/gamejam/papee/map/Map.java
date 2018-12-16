@@ -120,7 +120,11 @@ public class Map {
                         papee.getY() + papee.getSizeY() / 2, 48, 1));
 
         for (int x = startX; x < endX; x++) {
+            if (x < 0) continue;
+
             for (int y = startY; y < endY; y++) {
+                if (y < 0) continue;
+
                 try {
                     tiles[x][y].render();
                 } catch (ArrayIndexOutOfBoundsException ex) {

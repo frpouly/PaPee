@@ -16,6 +16,8 @@ import org.lwjgl.opengl.GL11;
 import java.util.Iterator;
 import java.util.Random;
 
+import static org.lwjgl.opengl.GL11.*;
+
 public class PaPee extends GObject {
     //0.93f
     private float drag = 0.8f;

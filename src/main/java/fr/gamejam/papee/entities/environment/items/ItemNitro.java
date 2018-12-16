@@ -20,7 +20,7 @@ public class ItemNitro extends Item {
         float speed = papee.getSpeed();
 
         setEffect(new Effect(120));
-        getEffect().applyEffect(papee , (paPee) -> {
+        getEffect().applyEffect(papee, (paPee) -> {
                     paPee.setSpeed(paPee.getSpeed() + 1.5f);
                     paPee.setTexture(GTexture.PLAYER_NITRO);
                 },
