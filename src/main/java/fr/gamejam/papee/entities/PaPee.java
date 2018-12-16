@@ -1,6 +1,7 @@
 package fr.gamejam.papee.entities;
 
 import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.environment.Effect;
@@ -25,6 +26,7 @@ public class PaPee extends GObject {
     public PaPee(float x, float y, Bladder bladder) {
         super(0, x, y, 32, 32, true);
         this.bladder = bladder;
+        setTexture(GTexture.PLAYER);
     }
 
     private void move() {

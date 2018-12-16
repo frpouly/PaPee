@@ -12,7 +12,6 @@ public class Registry {
     private Map<Integer, Class<? extends GObject>> list = new HashMap<>();
 
     public Registry() {
-        this.register(100, Door.class);
         this.register(101, PeePuddle.class);
         this.register(102, Poop.class);
     }
