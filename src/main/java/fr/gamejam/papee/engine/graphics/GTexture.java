@@ -1,16 +1,15 @@
 package fr.gamejam.papee.engine.graphics;
 
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL12.*;
+import fr.gamejam.papee.engine.utils.GDefines;
+import org.lwjgl.BufferUtils;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import javax.imageio.ImageIO;
-
-import fr.gamejam.papee.engine.utils.GDefines;
-import org.lwjgl.BufferUtils;
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL12.GL_CLAMP_TO_EDGE;
 
 public class GTexture {
     public static final GTexture DEFAULT_FONT = loadTexture(GDefines.FONTS + "default_font.png");
@@ -19,6 +18,7 @@ public class GTexture {
     public static final GTexture NITRO_TEXTURE = loadTexture(GDefines.TEXTURES + "items/nitro.png");
     public static final GTexture PEE_PUDDLE_TEXTURE = loadTexture(GDefines.TEXTURES + "obstacles/pee_puddle.png");
     public static final GTexture TILE_SET = loadTexture(GDefines.TEXTURES + "obstacles/obstacles_tileset.png");
+    public static final GTexture TOILETS = loadTexture(GDefines.TEXTURES + "obstacles/toilets.png");
 
     public static final GTexture UI_BLADDER_1 = loadTexture(GDefines.TEXTURES + "ui/bladder_1.png");
     public static final GTexture UI_BLADDER_3 = loadTexture(GDefines.TEXTURES + "ui/bladder_2.png");
