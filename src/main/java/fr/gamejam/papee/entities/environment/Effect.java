@@ -6,7 +6,6 @@ import fr.gamejam.papee.entities.PaPee;
 import java.util.function.Function;
 
 public class Effect {
-
     private int effectTime;
     private IEffect startEffect;
     private IEffect stopEffect;

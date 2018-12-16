@@ -8,9 +8,8 @@ import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 
 public class UIBladder implements UI {
-
     private Bladder bladder;
-    private GAnimation animation;
+    //private GAnimation animation;
 
     public UIBladder(PaPee papee) {
         this(papee.getBladder());
@@ -18,21 +17,19 @@ public class UIBladder implements UI {
 
     public UIBladder(Bladder bladder) {
         this.bladder = bladder;
-        this.animation = GAnimation.UI_BLADDER;
+    //    this.animation = GAnimation.UI_BLADDER;
     }
 
     @Override
     public void update() {
-        animation.update();
+    //    animation.update();
     }
 
     @Override
     public void render() {
-
-        GGraphics.renderImage(animation.current(), bladder.getX(), bladder.getY() + 128, 48, 48, GDefines.WHITE);
+    //  GGraphics.renderImage(animation.current(), bladder.getX(), bladder.getY() + 128, 48, 48, GDefines.WHITE);
 
         GGraphics.renderOffsetImage(GTexture.GUI_BLADDER, bladder.getX(), bladder.getY(), bladder.getSizeX(), bladder.getSizeY(), new float[] { 1f, 1f, 1f, 1f }, 0, 15, 20, 58);
         GGraphics.renderQuad(bladder.getX() + 18, bladder.getY() + 20 + (bladder.getPeeMaxLevel() - bladder.getPeeLevel()) * bladder.getScaleY(), bladder.getSizeX() - 36, bladder.getPeeLevel() * bladder.getScaleY(), new float[] { 1f, 1f, 0f, 0.8f });
-
     }
 }

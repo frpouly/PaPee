@@ -3,7 +3,6 @@ package fr.gamejam.papee.entities;
 import fr.gamejam.papee.engine.objects.GObject;
 
 public class Bladder extends GObject {
-
     public static final float INCREASE_PEE_LEVEL_BASE = 0.02f;
 
     private float peeStartLevel;
@@ -12,10 +11,6 @@ public class Bladder extends GObject {
     private boolean isFull;
     private float scaleY;
     private float increaseLevel;
-
-    public boolean isFull() {
-        return isFull;
-    }
 
     public Bladder(float peeStartLevel, float peeMaxLevel) {
         super(100, 10, 10, 64, 256, false);
@@ -51,6 +46,10 @@ public class Bladder extends GObject {
 
     public void setPeeLevel(float peeLevel) {
         this.peeLevel = peeLevel;
+    }
+
+    public boolean isFull() {
+        return isFull;
     }
 
     public float getIncreaseLevel() {
