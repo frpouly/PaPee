@@ -18,6 +18,7 @@ public class PaPee extends GObject {
     private float speed = 1f, dx = 0.0f, dy = 0.0f;
     private Map map;
     private Bladder bladder;
+    private boolean won;
 
     public PaPee(float x, float y, Bladder bladder) {
         super(0, x, y, 32, 32, true);
@@ -142,5 +143,13 @@ public class PaPee extends GObject {
                 effect.setEffectTime(effect.getEffectTime() - 1);
             }
         }
+    }
+
+    public boolean isWon() {
+        return won;
+    }
+
+    public void hasWon() {
+        this.won = true;
     }
 }
