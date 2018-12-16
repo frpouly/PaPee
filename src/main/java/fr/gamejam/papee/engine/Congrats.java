@@ -9,7 +9,7 @@ public class Congrats extends GGame {
 
     public Congrats() {
         objects.clear();
-        new GButton("MENU", 400, 400, 32) {
+        new GButton("MENU", window.getWidth()/2 - 80, 400, 32) {
             @Override
             public void onClick() {
                 window.start(new Menu());
@@ -20,6 +20,6 @@ public class Congrats extends GGame {
     @Override
     public void render() {
         super.render();
-        GGraphics.renderText("CONGRATS", window.getWidth()/2 - 252, window.getHeight()/2 - 28, 56, GDefines.WHITE);
+        GGraphics.renderText("CONGRATS", window.getWidth()/2 - (56 * 4), window.getHeight() - 600, 56, GDefines.WHITE);
     }
 }

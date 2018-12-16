@@ -13,7 +13,7 @@ public class Menu extends GGame {
             GGame.window = new GWindow(GDefines.WIDTH, GDefines.HEIGHT, GDefines.TITLE);
 
 
-        GButton play = new GButton("PLAY", GGame.window.getWidth() / 2 - 64, GGame.window.getHeight() / 2 - 16, 32) {
+        GButton play = new GButton("PLAY", window.getWidth()/2 - (22 * 4), GGame.window.getHeight() / 2 - 16, 32) {
             @Override
             public void onClick() {
                 GGame.window.start(new Game());
