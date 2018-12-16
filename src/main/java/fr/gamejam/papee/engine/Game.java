@@ -37,9 +37,10 @@ public class Game extends GGame {
     public Game() {
         objects.clear();
 
-        String[] levels = new String[] {
-            //v"/levels/level_1.json",
-            "/levels/level_2.json"
+        String[] levels = new String[]{
+                "/levels/level_1.json",
+                "/levels/level_2.json",
+                "/levels/level_3.json"
         };
 
         LevelLoader l = new LevelLoader(levels[(int) (Math.random() * levels.length)]);
@@ -54,9 +55,9 @@ public class Game extends GGame {
             int x = 0;
             int y = 0;
             do {
-                x = (int)(Math.random() * GDefines.MAP_WIDTH);
-                y = (int)(Math.random() * GDefines.MAP_HEIGHT);
-            } while(map.getTiles()[x][y].isRigid());
+                x = (int) (Math.random() * GDefines.MAP_WIDTH);
+                y = (int) (Math.random() * GDefines.MAP_HEIGHT);
+            } while (map.getTiles()[x][y].isRigid());
             new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
@@ -64,9 +65,9 @@ public class Game extends GGame {
             int x = 0;
             int y = 0;
             do {
-                x = (int)(Math.random() * GDefines.MAP_WIDTH);
-                y = (int)(Math.random() * GDefines.MAP_HEIGHT);
-            } while(map.getTiles()[x][y].isRigid());
+                x = (int) (Math.random() * GDefines.MAP_WIDTH);
+                y = (int) (Math.random() * GDefines.MAP_HEIGHT);
+            } while (map.getTiles()[x][y].isRigid());
             new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
@@ -74,9 +75,9 @@ public class Game extends GGame {
             int x = 0;
             int y = 0;
             do {
-                x = (int)(Math.random() * GDefines.MAP_WIDTH);
-                y = (int)(Math.random() * GDefines.MAP_HEIGHT);
-            } while(map.getTiles()[x][y].isRigid());
+                x = (int) (Math.random() * GDefines.MAP_WIDTH);
+                y = (int) (Math.random() * GDefines.MAP_HEIGHT);
+            } while (map.getTiles()[x][y].isRigid());
             new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
@@ -84,9 +85,9 @@ public class Game extends GGame {
             int x = 0;
             int y = 0;
             do {
-                x = (int)(Math.random() * GDefines.MAP_WIDTH);
-                y = (int)(Math.random() * GDefines.MAP_HEIGHT);
-            } while(map.getTiles()[x][y].isRigid());
+                x = (int) (Math.random() * GDefines.MAP_WIDTH);
+                y = (int) (Math.random() * GDefines.MAP_HEIGHT);
+            } while (map.getTiles()[x][y].isRigid());
             new ItemViagra(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
@@ -115,12 +116,10 @@ public class Game extends GGame {
         map.update();
 
         // Check if Bladder is full
-        if(map.getPapee().getBladder().isFull())
-        {
+        if (map.getPapee().getBladder().isFull()) {
             GGame.window.start(new GameOver());
         }
-        if(map.getPapee().isWon())
-        {
+        if (map.getPapee().isWon()) {
             GGame.window.start(new Congrats());
         }
 
