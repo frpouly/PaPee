@@ -2,16 +2,20 @@ package fr.gamejam.papee.entities;
 
 import fr.gamejam.papee.engine.Game;
 import fr.gamejam.papee.engine.graphics.GGraphics;
+import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
+import fr.gamejam.papee.entities.environment.items.ItemNitro;
 import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
 import fr.gamejam.papee.game.level.Tile;
 import fr.gamejam.papee.map.Map;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Vector2f;
 
 import java.util.Iterator;
 
@@ -79,7 +83,6 @@ public class PaPee extends GObject {
     @Override
     public void update() {
         getBladder().increasePeeLevel();
-
         move();
         manageCollision();
         manageEffect();
@@ -129,6 +132,22 @@ public class PaPee extends GObject {
         this.bladder = bladder;
     }
 
+    public float getDx() {
+        return dx;
+    }
+
+    public void setDx(float dx) {
+        this.dx = dx;
+    }
+
+    public float getDy() {
+        return dy;
+    }
+
+    public void setDy(float dy) {
+        this.dy = dy;
+    }
+
     public Map getMap() {
         return map;
     }
@@ -149,28 +168,26 @@ public class PaPee extends GObject {
     }
 
     private void manageCollision() {
-        Iterator<GObject> iterator = Game.objects.iterator();
-
-        while (iterator.hasNext()) {
-            GObject o = iterator.next();
-
+        for(int i = 0; i < Game.objects.size(); i++) {
+            GObject o = Game.objects.get(i);
             if (o instanceof EnvironmentObject) {
                 EnvironmentObject obj = ((EnvironmentObject) o);
 
                 if (isCollision(obj)) {
                     obj.effect(this);
-
                     if (o instanceof Item) {
-                        iterator.remove();
+                        Game.objects.remove(o);
                     }
                 }
+
+
             }
         }
+
     }
 
     private void manageEffect() {
         Iterator<Effect> iterator = Game.effects.iterator();
-
         while (iterator.hasNext()) {
             Effect effect = iterator.next();
             if (effect.getEffectTime() <= 0) {
@@ -178,8 +195,22 @@ public class PaPee extends GObject {
                 iterator.remove();
             } else {
                 effect.setEffectTime(effect.getEffectTime() - 1);
+                if(effect.isGenerateParticle()) {
+                    for(int i = 0 ; i < 10; i++) {
+                        GParticle p = new GParticle(1000, getX(), getY(), 32);
+                        Vector2f dir = new Vector2f(-getDx(), -getDy());
+                        dir.normalise(dir);
+                        p.setDirection(dir);
+                        p.setTexture(effect.getParticleName());
+                        p.setColor(GDefines.WHITE);
+                        p.setSpeed(2);
+                        p.setLifetime(0.1f);
+                    }
+                }
             }
         }
+
+
     }
 
     public boolean isWon() {

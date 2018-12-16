@@ -21,6 +21,7 @@ public class GTexture {
     public static final GTexture PEE_PUDDLE_TEXTURE = loadTexture(GDefines.TEXTURES + "obstacles/pee_puddle.png");
     public static final GTexture TILE_SET = loadTexture(GDefines.TEXTURES + "obstacles/obstacles_tileset.png");
     public static final GTexture TILE_SET_2 = loadTexture(GDefines.TEXTURES + "obstacles/ui_pieces.png");
+    public static final GTexture FIRE_PARTICLE = loadTexture(GDefines.TEXTURES + "particles/fire.png");
     public static final GTexture TOILETS = loadTexture(GDefines.TEXTURES + "obstacles/toilets.png");
     public static final GTexture UI_BLADDER_1 = loadTexture(GDefines.TEXTURES + "ui/bladder_1.png");
     public static final GTexture UI_BLADDER_3 = loadTexture(GDefines.TEXTURES + "ui/bladder_2.png");

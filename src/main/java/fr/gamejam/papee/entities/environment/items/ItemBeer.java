@@ -12,7 +12,7 @@ public class ItemBeer extends Item {
 
     @Override
     public void effect(PaPee papee) {
-        setEffect(new Effect(0));
+        setEffect(new Effect(0, null));
         getEffect().applyEffect(papee , paPee -> paPee.getBladder().increasePeeLevel(10));
         getEffect().startEffect();
     }

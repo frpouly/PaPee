@@ -1,7 +1,11 @@
 package fr.gamejam.papee.entities.environment;
 
 import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.engine.fx.GParticle;
+import fr.gamejam.papee.engine.graphics.GTexture;
+import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.PaPee;
+import org.lwjgl.util.vector.Vector2f;
 
 import java.util.function.Function;
 
@@ -10,9 +14,18 @@ public class Effect {
     private IEffect startEffect;
     private IEffect stopEffect;
     private PaPee papee;
+    private boolean generateParticle;
+    private GTexture particleName;
 
-    public Effect(int effectTime) {
+    public Effect(int effectTime, GTexture particleName) {
         setEffectTime(effectTime);
+        this.particleName = particleName;
+        if(particleName != null) {
+            setGenerateParticle(true);
+        } else {
+            setGenerateParticle(false);
+        }
+
         Game.effects.add(this);
     }
 
@@ -38,6 +51,7 @@ public class Effect {
         if (startEffect == null) {
             stopEffect = null;
         } else {
+
             startEffect.effect(papee);
         }
     }
@@ -46,5 +60,17 @@ public class Effect {
         if (stopEffect != null) {
             stopEffect.effect(papee);
         }
+    }
+
+    public boolean isGenerateParticle() {
+        return generateParticle;
+    }
+
+    public void setGenerateParticle(boolean generateParticle) {
+        this.generateParticle = generateParticle;
+    }
+
+    public GTexture getParticleName() {
+        return particleName;
     }
 }

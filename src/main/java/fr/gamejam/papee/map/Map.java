@@ -1,6 +1,7 @@
 package fr.gamejam.papee.map;
 
 import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.PaPee;
@@ -62,7 +63,7 @@ public class Map {
         int x0 = (int) (papee.getX() + xa + 8) / GDefines.TILE_WIDTH;
         int x1 = (int) (papee.getX() + xa + 54) / GDefines.TILE_WIDTH;
         int y0 = (int) (papee.getY() + ya + 54) / GDefines.TILE_HEIGHT;
-        int y1 = (int) (papee.getY() + ya) / GDefines.TILE_HEIGHT;
+        int y1 = (int) (papee.getY() + ya + 8) / GDefines.TILE_HEIGHT;
 
         if (getTiles()[x0][y0].isRigid()) return true;
         if (getTiles()[x1][y0].isRigid()) return true;
@@ -152,6 +153,15 @@ public class Map {
             if (o instanceof EnvironmentObject) {
                 EnvironmentObject obj = ((EnvironmentObject) o);
                 obj.render();
+
+
+            }
+        }
+
+        for (int i = 0; i < Game.objects.size(); i++) {
+            GObject o = Game.objects.get(i);
+            if ((o instanceof GParticle)) {
+                o.render();
             }
         }
 

@@ -14,10 +14,9 @@ public class ItemNitro extends Item {
     @Override
     public void effect(PaPee papee) {
         float speed = papee.getSpeed();
-
-        setEffect(new Effect(120));
-        getEffect().applyEffect(papee, (paPee) -> {
-                    paPee.setSpeed(paPee.getSpeed() + 0.75f);
+        setEffect(new Effect(120, GTexture.FIRE_PARTICLE));
+        getEffect().applyEffect(papee , (paPee) -> {
+                    paPee.setSpeed(paPee.getSpeed() + 1.5f);
                     paPee.setTexture(GTexture.PLAYER_NITRO);
                 },
                 (paPee) -> {
