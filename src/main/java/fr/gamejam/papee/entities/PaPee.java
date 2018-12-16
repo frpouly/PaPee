@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 public class PaPee extends GObject {
     //0.93f
-    private float drag = 0.93f;
+    private float drag = 0.8f;
     private float speed = 1f, dx = 0.0f, dy = 0.0f;
     private Map map;
     private Bladder bladder;
