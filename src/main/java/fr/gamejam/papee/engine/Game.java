@@ -11,7 +11,6 @@ import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.Effect;
-import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.entities.environment.items.ItemBeer;
 import fr.gamejam.papee.entities.environment.items.ItemNitro;
@@ -38,7 +37,12 @@ public class Game extends GGame {
     public Game() {
         objects.clear();
 
-        LevelLoader l = new LevelLoader("/levels/level_4.json");
+        String[] levels = new String[] {
+            "/levels/level_1.json",
+            "/levels/level_2.json"
+        };
+
+        LevelLoader l = new LevelLoader(levels[(int) (Math.random() * levels.length)]);
         PaPee papee = new PaPee(1200, 1000, new Bladder(10, 100));
         Toilets toilets = new Toilets(2, (int) (Math.random() * GDefines.TILE_WIDTH * GDefines.MAP_WIDTH), (int) (Math.random() * GDefines.TILE_HEIGHT * GDefines.MAP_HEIGHT));
 
