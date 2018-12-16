@@ -5,11 +5,9 @@ import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
-import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.game.level.Tile;
 import org.lwjgl.opengl.Display;
-
-import java.util.Iterator;
+import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -117,6 +115,9 @@ public class Map {
     public void render() {
         glPushMatrix();
         glTranslatef(xScroll, yScroll, 0);
+        GL11.glLight(GL11.GL_LIGHT0, GL11.GL_POSITION,
+                GDefines.floatBuffer(papee.getX() + papee.getSizeX() / 2,
+                        papee.getY() + papee.getSizeY() / 2, 48, 1));
 
         for (int x = startX; x < endX; x++) {
             for (int y = startY; y < endY; y++) {
