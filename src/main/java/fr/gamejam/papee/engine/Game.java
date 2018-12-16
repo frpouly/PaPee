@@ -31,7 +31,7 @@ public class Game extends GGame {
     public Game() {
         objects.clear();
 
-        LevelLoader l = new LevelLoader("/levels/level_1.json");
+        LevelLoader l = new LevelLoader("/levels/level1.json");
         itemViagra = new ItemViagra(1,600, 200);
 
         PaPee papee = new PaPee(200, 200, new Bladder(10, 100));

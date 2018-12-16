@@ -10,7 +10,6 @@ import fr.gamejam.papee.game.level.Tile;
 import fr.gamejam.papee.map.Map;
 import org.lwjgl.input.Keyboard;
 
-import java.awt.*;
 import java.util.Iterator;
 
 public class PaPee extends GObject {
@@ -53,8 +52,7 @@ public class PaPee extends GObject {
 
     private boolean isCollisionWithWall() {
         Tile[][] tmp = map.getTiles();
-
-        if (!this.getBounds().intersects(new Rectangle(sizeX, sizeY, tmp[getPosX()][getPosY()].getSizeX(), tmp[getPosX()][getPosY()].getSizeX())) && tmp[getPosX()][getPosY()].isRigid()) {
+        if (tmp[getPosX()][getPosY()].isRigid() || tmp[getPosX() + 1][getPosY()].isRigid() || tmp[getPosX()][getPosY() + 1].isRigid()) {
             return true;
         }
         return false;
