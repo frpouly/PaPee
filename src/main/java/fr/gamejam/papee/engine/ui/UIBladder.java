@@ -1,6 +1,5 @@
 package fr.gamejam.papee.engine.ui;
 
-import fr.gamejam.papee.engine.Game;
 import fr.gamejam.papee.engine.animation.GAnimation;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.utils.GDefines;
