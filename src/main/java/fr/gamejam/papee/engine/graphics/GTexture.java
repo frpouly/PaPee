@@ -19,6 +19,10 @@ public class GTexture {
     public static final GTexture NITRO_TEXTURE = loadTexture(GDefines.TEXTURES + "items/nitro.png");
     public static final GTexture TILE_SET = loadTexture(GDefines.TEXTURES + "obstacles/obstacles_tileset.png");
 
+    public static final GTexture UI_BLADDER_1 = loadTexture(GDefines.TEXTURES + "ui/bladder_1.png");
+    public static final GTexture UI_BLADDER_3 = loadTexture(GDefines.TEXTURES + "ui/bladder_2.png");
+    public static final GTexture UI_BLADDER_2 = loadTexture(GDefines.TEXTURES + "ui/bladder_3.png");
+
     private int width, height;
     private int id;
 
