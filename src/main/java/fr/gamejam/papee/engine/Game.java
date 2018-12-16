@@ -39,11 +39,11 @@ public class Game extends GGame {
 
         objects.clear();
 
-        LevelLoader l = new LevelLoader("/levels/level_1.json");
+        LevelLoader l = new LevelLoader("/levels/level_3.json");
         itemViagra = new ItemViagra(1,600, 200);
 
         ItemNitro nitro = new ItemNitro(5, 500, 500);
-        PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
+        PaPee papee = new PaPee(1200, 1000, new Bladder(10, 100));
         Toilets toilets = new Toilets(2, 10000, 5000);
 
         map = new Map(papee, l.getTiles());
