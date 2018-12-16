@@ -24,6 +24,9 @@ public class GTexture {
     public static final GTexture UI_BLADDER_3 = loadTexture(GDefines.TEXTURES + "ui/bladder_2.png");
     public static final GTexture UI_BLADDER_2 = loadTexture(GDefines.TEXTURES + "ui/bladder_3.png");
 
+    public static final GTexture PLAYER = loadTexture(GDefines.TEXTURES + "player/player.png");
+    public static final GTexture PLAYER_NITRO = loadTexture(GDefines.TEXTURES + "player/player_nitro.png");
+
     private int width, height;
     private int id;
 
