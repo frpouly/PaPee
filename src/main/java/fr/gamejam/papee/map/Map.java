@@ -5,12 +5,9 @@ import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
-import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.game.level.Tile;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
-
-import java.util.Iterator;
 
 import static org.lwjgl.opengl.GL11.*;
 

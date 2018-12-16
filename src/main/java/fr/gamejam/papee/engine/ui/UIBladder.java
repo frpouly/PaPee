@@ -3,6 +3,7 @@ package fr.gamejam.papee.engine.ui;
 import fr.gamejam.papee.engine.animation.GAnimation;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.graphics.GTexture;
+import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 
@@ -27,7 +28,7 @@ public class UIBladder implements UI {
 
     @Override
     public void render() {
-
+        GGraphics.renderImage(animation.current(), bladder.getX(), bladder.getY() + 128, 48, 48, GDefines.WHITE);
         GGraphics.renderOffsetImage(GTexture.GUI_BLADDER, bladder.getX(), bladder.getY(), bladder.getSizeX(), bladder.getSizeY(), new float[] { 1f, 1f, 1f, 1f }, 0, 15, 20, 58);
         GGraphics.renderQuad(bladder.getX() + 18, bladder.getY() + 20 + (bladder.getPeeMaxLevel() - bladder.getPeeLevel()) * bladder.getScaleY(), bladder.getSizeX() - 36, bladder.getPeeLevel() * bladder.getScaleY(), new float[] { 1f, 1f, 0f, 0.8f });
 
