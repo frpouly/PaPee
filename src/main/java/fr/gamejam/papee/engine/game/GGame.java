@@ -37,7 +37,6 @@ public abstract class GGame {
         for (int i = 0; i < objects.size(); i++) {
             GObject o = objects.get(i);
             if (!(o instanceof EnvironmentObject)) {
-                System.out.println(o);
                 o.render();
             }
         }

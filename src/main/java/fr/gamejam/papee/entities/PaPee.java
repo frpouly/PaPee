@@ -197,7 +197,7 @@ public class PaPee extends GObject {
                 effect.setEffectTime(effect.getEffectTime() - 1);
                 if(effect.isGenerateParticle()) {
                     for(int i = 0 ; i < 10; i++) {
-                        GParticle p = new GParticle(1000, getX(), getY(), 32);
+                        GParticle p = new GParticle(1000, getX(), getY() + GDefines.OBJECT_HEIGHT / 2, 32);
                         Vector2f dir = new Vector2f(-getDx(), -getDy());
                         dir.normalise(dir);
                         p.setDirection(dir);
