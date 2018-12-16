@@ -1,9 +1,15 @@
 package fr.gamejam.papee.map;
 
+import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.PaPee;
+import fr.gamejam.papee.entities.environment.EnvironmentObject;
+import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.game.level.Tile;
 import org.lwjgl.opengl.Display;
+
+import java.util.Iterator;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -12,7 +18,6 @@ public class Map {
     private Tile[][] tiles;
 
     private float xScroll, yScroll;
-    private float xa = 0, ya = 0;
 
     private static final int xMaxTiles = (GDefines.WIDTH / GDefines.TILE_WIDTH);
     private static final int yMaxTiles = (GDefines.HEIGHT / GDefines.TILE_HEIGHT);
@@ -77,8 +82,8 @@ public class Map {
     public void update() {
         calculateBounds();
 
-        this.xa = -papee.getX() + Display.getWidth() / 2 - 8;
-        this.ya = -papee.getY() + Display.getHeight() / 2 - 8;
+        float xa = -papee.getX() + Display.getWidth() / 2 - 8;
+        float ya = -papee.getY() + Display.getHeight() / 2 - 8;
 
         translateView(xa, ya);
 
@@ -89,6 +94,13 @@ public class Map {
                 } catch (ArrayIndexOutOfBoundsException ex) {
                     // ignore
                 }
+            }
+        }
+
+        for (GObject o : Game.objects) {
+            if (o instanceof EnvironmentObject) {
+                EnvironmentObject obj = ((EnvironmentObject) o);
+                obj.update();
             }
         }
 
@@ -106,6 +118,13 @@ public class Map {
                 } catch (ArrayIndexOutOfBoundsException ex) {
                     // ignore
                 }
+            }
+        }
+
+        for (GObject o : Game.objects) {
+            if (o instanceof EnvironmentObject) {
+                EnvironmentObject obj = ((EnvironmentObject) o);
+                obj.render();
             }
         }
 

@@ -24,20 +24,20 @@ public class PaPee extends GObject {
     }
 
     private void move() {
-        if(Keyboard.isKeyDown(Keyboard.KEY_Z)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_Z)) {
             dy -= speed;
         }
-        if(Keyboard.isKeyDown(Keyboard.KEY_Q)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_Q)) {
             dx -= speed;
         }
-        if(Keyboard.isKeyDown(Keyboard.KEY_S)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
             dy += speed;
         }
-        if(Keyboard.isKeyDown(Keyboard.KEY_D)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
             dx += speed;
         }
 
-        if(isOutOfWindowBound()) {
+        if (isOutOfWindowBound()) {
             dx = -dx;
             dy = -dy;
         }
@@ -99,13 +99,16 @@ public class PaPee extends GObject {
     private void manageCollision() {
         Iterator<GObject> iterator = Game.objects.iterator();
 
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             GObject o = iterator.next();
-            if(o instanceof EnvironmentObject) {
-                EnvironmentObject obj = ((EnvironmentObject)o);
-                if(isCollision(obj)) {
+
+            if (o instanceof EnvironmentObject) {
+                EnvironmentObject obj = ((EnvironmentObject) o);
+
+                if (isCollision(obj)) {
                     obj.effect(this);
-                    if(o instanceof Item) {
+
+                    if (o instanceof Item) {
                         iterator.remove();
                     }
                 }
@@ -113,12 +116,12 @@ public class PaPee extends GObject {
         }
     }
 
-    private  void manageEffect() {
+    private void manageEffect() {
         Iterator<Effect> iterator = Game.effects.iterator();
 
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Effect effect = iterator.next();
-            if(effect.getEffectTime() <= 0) {
+            if (effect.getEffectTime() <= 0) {
                 effect.stopEffect();
                 iterator.remove();
             } else {

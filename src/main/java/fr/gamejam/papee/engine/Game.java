@@ -10,6 +10,7 @@ import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.Effect;
+import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import fr.gamejam.papee.game.level.LevelLoader;
@@ -32,7 +33,8 @@ public class Game extends GGame {
         objects.clear();
 
         LevelLoader l = new LevelLoader("/levels/level_1.json");
-        itemViagra = new ItemViagra(1,600, 200);
+
+        Item viagra = new ItemViagra(1,600, 200);
 
         PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
         map = new Map(papee, l.getTiles());
