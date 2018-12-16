@@ -7,10 +7,9 @@ import fr.gamejam.papee.entities.environment.Effect;
 
 public class ItemViagra extends Item {
     public ItemViagra(int ID, float x, float y) {
-        super(ID, x, y, ItemType.BONUS, "viagra");
+        super(ID, x, y, "viagra");
         setTexture(GTexture.VIAGRA_TEXTURE);
     }
-
 
     @Override
     public void effect(PaPee papee) {

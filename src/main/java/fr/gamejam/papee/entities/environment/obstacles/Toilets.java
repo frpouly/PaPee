@@ -5,9 +5,8 @@ import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.PaPee;
 
 public class Toilets extends Obstacle {
-
     public Toilets(int ID, float x, float y) {
-        super(ID, x, y, null, "toilets");
+        super(ID, x, y, "toilets");
         setTexture(GTexture.TOILETS);
     }
 
