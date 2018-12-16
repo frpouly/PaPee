@@ -27,12 +27,15 @@ import java.util.Random;
 public class Game extends GGame {
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
 
+
     private Map map;
     private Item itemViagra;
 
     private List<UI> listUI = new ArrayList<>();
 
     public Game() {
+
+
         objects.clear();
 
         LevelLoader l = new LevelLoader("/levels/level_1.json");
