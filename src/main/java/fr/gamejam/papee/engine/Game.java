@@ -36,20 +36,15 @@ public class Game extends GGame {
     private List<UI> listUI = new ArrayList<>();
 
     public Game() {
-
-
         objects.clear();
 
         LevelLoader l = new LevelLoader("/levels/level_3.json");
-        itemViagra = new ItemViagra(1,600, 200);
-
-        ItemNitro nitro = new ItemNitro(5, 500, 500);
         PaPee papee = new PaPee(1200, 1000, new Bladder(10, 100));
-        Toilets toilets = new Toilets(2, 10000, 5000);
+        Toilets toilets = new Toilets(2, (int) (Math.random() * GDefines.TILE_WIDTH * GDefines.MAP_WIDTH), (int) (Math.random() * GDefines.TILE_HEIGHT * GDefines.MAP_HEIGHT));
 
         map = new Map(papee, l.getTiles());
 
-        for (int i = 0; i < GDefines.MAP_WIDTH / 2; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 4; i++) {
             int x = 0;
             int y = 0;
             do {
@@ -59,7 +54,7 @@ public class Game extends GGame {
             new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
-        for (int i = 0; i < GDefines.MAP_WIDTH / 5; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 7; i++) {
             int x = 0;
             int y = 0;
             do {
@@ -69,7 +64,7 @@ public class Game extends GGame {
             new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
-        for (int i = 0; i < GDefines.MAP_WIDTH / 4; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 6; i++) {
             int x = 0;
             int y = 0;
             do {
@@ -79,7 +74,7 @@ public class Game extends GGame {
             new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
-        for (int i = 0; i < GDefines.MAP_WIDTH / 6; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 8; i++) {
             int x = 0;
             int y = 0;
             do {

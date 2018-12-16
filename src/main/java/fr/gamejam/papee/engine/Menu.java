@@ -11,6 +11,8 @@ public class Menu extends GGame {
         objects.clear();
         if(GGame.window == null)
             GGame.window = new GWindow(GDefines.WIDTH, GDefines.HEIGHT, GDefines.TITLE);
+
+
         GButton play = new GButton("PLAY", GGame.window.getWidth() / 2 - 64, GGame.window.getHeight() / 2 - 16, 32) {
             @Override
             public void onClick() {
