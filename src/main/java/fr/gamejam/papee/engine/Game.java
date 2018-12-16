@@ -26,8 +26,6 @@ public class Game extends GGame {
      */
     Item itemViagra;
 
-
-
     private PaPee papee;
 
     public Game()
