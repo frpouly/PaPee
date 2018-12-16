@@ -1,6 +1,7 @@
 package fr.gamejam.papee.entities;
 
 import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
@@ -11,10 +12,8 @@ import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
 import fr.gamejam.papee.game.level.Tile;
 import fr.gamejam.papee.map.Map;
 import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
 
 import java.util.Iterator;
-import java.util.Random;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -89,7 +88,12 @@ public class PaPee extends GObject {
 
     @Override
     public void render() {
-        super.render();
+        glPushMatrix();
+        glTranslatef(getX() + 32f, getY() + 32f, 0);
+        float angle = (float) Math.toDegrees(Math.atan2(dy, dx));
+        glRotatef(angle, 0, 0, 1);
+        GGraphics.renderImage(texture, -32, -32, 64, 64, GDefines.WHITE);
+        glPopMatrix();
         bladder.render();
     }
 
