@@ -1,8 +1,10 @@
 package fr.gamejam.papee.engine.game;
 
+import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.components.GWindow;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.entities.environment.EnvironmentObject;
 
 import java.util.ArrayList;
 
@@ -34,7 +36,10 @@ public abstract class GGame {
     public void render() {
         for (int i = 0; i < objects.size(); i++) {
             GObject o = objects.get(i);
-            o.render();
+
+            if (!(o instanceof EnvironmentObject)) {
+                o.render();
+            }
         }
     }
 }
