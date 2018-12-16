@@ -6,7 +6,7 @@ import fr.gamejam.papee.engine.utils.GDefines;
 
 public class Bladder extends GObject {
 
-    public static final float INCREASE_PEE_LEVEL_BASE = 0.02f;
+    public static final float INCREASE_PEE_LEVEL_BASE = 0.12f;
 
     private float peeStartLevel;
     private float peeMaxLevel;
@@ -20,7 +20,7 @@ public class Bladder extends GObject {
     }
 
     public Bladder(float peeStartLevel, float peeMaxLevel) {
-        super(100, 10, 10, 32, 128, false);
+        super(100, 10, 10, 64, 256, false);
         this.peeStartLevel = peeStartLevel;
         this.peeMaxLevel = peeMaxLevel;
         this.peeLevel = peeStartLevel;
