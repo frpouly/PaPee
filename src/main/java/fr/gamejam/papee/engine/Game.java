@@ -12,10 +12,7 @@ import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.Effect;
-import fr.gamejam.papee.entities.environment.items.Item;
-import fr.gamejam.papee.entities.environment.items.ItemBeer;
-import fr.gamejam.papee.entities.environment.items.ItemNitro;
-import fr.gamejam.papee.entities.environment.items.ItemViagra;
+import fr.gamejam.papee.entities.environment.items.*;
 import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
 import fr.gamejam.papee.entities.environment.obstacles.Toilets;
 import fr.gamejam.papee.game.level.LevelLoader;
@@ -81,6 +78,16 @@ public class Game extends GGame {
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
             new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+        }
+
+        for (int i = 0; i < GDefines.MAP_WIDTH / 16; i++) {
+            int x = 0;
+            int y = 0;
+            do {
+                x = (int) (Math.random() * GDefines.MAP_WIDTH);
+                y = (int) (Math.random() * GDefines.MAP_HEIGHT);
+            } while (map.getTiles()[x][y].isRigid());
+            new ItemWhisky(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 8; i++) {
