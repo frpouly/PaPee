@@ -10,6 +10,19 @@ public class Toilets extends Obstacle {
         setTexture(GTexture.TOILETS);
     }
 
+    public void recreatePosition() { // C'est dégueu mais j'ai pas le temps de faire un truc potable
+        int x;
+        int y;
+
+        do {
+            x = (int)(Math.random() * GDefines.MAP_WIDTH);
+            y = (int)(Math.random() * GDefines.MAP_HEIGHT);
+        } while(getMap().getTiles()[x][y].isRigid());
+
+        setX(x * GDefines.OBJECT_WIDTH);
+        setY(y * GDefines.OBJECT_HEIGHT);
+    }
+
     @Override
     public void effect(PaPee papee) {
         papee.hasWon();

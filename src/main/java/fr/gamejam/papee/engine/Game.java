@@ -38,11 +38,13 @@ public class Game extends GGame {
     public Game() {
         objects.clear();
 
-        LevelLoader l = new LevelLoader("/levels/level_3.json");
+        LevelLoader l = new LevelLoader("/levels/level_4.json");
         PaPee papee = new PaPee(1200, 1000, new Bladder(10, 100));
         Toilets toilets = new Toilets(2, (int) (Math.random() * GDefines.TILE_WIDTH * GDefines.MAP_WIDTH), (int) (Math.random() * GDefines.TILE_HEIGHT * GDefines.MAP_HEIGHT));
 
         map = new Map(papee, l.getTiles());
+        toilets.setMap(map);
+        toilets.recreatePosition(); // C'est dégueu mais j'ai pas le temps de faire un truc potable
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 4; i++) {
             int x = 0;
