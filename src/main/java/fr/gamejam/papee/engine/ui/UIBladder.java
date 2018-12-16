@@ -28,8 +28,6 @@ public class UIBladder implements UI {
 
     @Override
     public void render() {
-        GGraphics.renderQuad(bladder.getX(), bladder.getY(), bladder.getSizeX(), bladder.getSizeY(), new float[] { 1f, 1f, 1f, 0.8f });
-        GGraphics.renderQuad(bladder.getX(), bladder.getY() + (bladder.getPeeMaxLevel() - bladder.getPeeLevel()) * bladder.getScaleY(), bladder.getSizeX(), bladder.getPeeLevel() * bladder.getScaleY(), new float[] { 1f, 1f, 0f, 0.8f });
 
         GGraphics.renderImage(animation.current(), bladder.getX(), bladder.getY() + 128, 48, 48, GDefines.WHITE);
 
