@@ -16,7 +16,7 @@ public class Menu extends GGame {
         if(GGame.window == null)
             GGame.window = new GWindow(GDefines.WIDTH, GDefines.HEIGHT, GDefines.TITLE);
 
-        GButton play_easy = new GButton("EASY", window.getWidth()/5 - (22 * 4), GGame.window.getHeight() / 2 - 16, 32) {
+        GButton play_easy = new GButton("EASY", window.getWidth()/5 - (4 * 16), GGame.window.getHeight() / 2 - 16, 32) {
 
             @Override
             public void onClick() {
@@ -25,7 +25,7 @@ public class Menu extends GGame {
             }
         };
 
-        GButton play_medium = new GButton("MEDIUM", window.getWidth()/2 - (22 * 4), GGame.window.getHeight() / 2 - 16, 32) {
+        GButton play_medium = new GButton("MEDIUM", window.getWidth()/2 - (6 * 32 /2), GGame.window.getHeight() / 2 - 16, 32) {
 
             @Override
             public void onClick() {
@@ -34,7 +34,7 @@ public class Menu extends GGame {
             }
         };
 
-        GButton play_hard = new GButton("HARD", window.getWidth() - (22 * 16), GGame.window.getHeight() / 2 - 16, 32) {
+        GButton play_hard = new GButton("HARD", window.getWidth() - (9 * 32), GGame.window.getHeight() / 2 - 16, 32) {
 
             @Override
             public void onClick() {
