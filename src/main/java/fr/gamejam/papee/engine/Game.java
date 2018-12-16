@@ -38,6 +38,7 @@ public class Game extends GGame {
 
         PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
         map = new Map(papee, l.getTiles());
+        papee.setMap(map);
 
         listUI.add(new UIBladder(papee.getBladder()));
 
