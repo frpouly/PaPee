@@ -38,7 +38,7 @@ public class Game extends GGame {
         objects.clear();
 
         String[] levels = new String[] {
-            "/levels/level_1.json",
+            //v"/levels/level_1.json",
             "/levels/level_2.json"
         };
 

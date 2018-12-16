@@ -13,6 +13,8 @@ import static org.lwjgl.opengl.GL12.GL_CLAMP_TO_EDGE;
 
 public class GTexture {
     public static final GTexture DEFAULT_FONT = loadTexture(GDefines.FONTS + "default_font.png");
+
+    public static final GTexture ICON_TEXTURE = loadTexture(GDefines.TEXTURES + "logo/logo.png");
     public static final GTexture VIAGRA_TEXTURE = loadTexture(GDefines.TEXTURES + "items/viagra.png");
     public static final GTexture BEER_TEXTURE = loadTexture(GDefines.TEXTURES + "items/beer.png");
     public static final GTexture NITRO_TEXTURE = loadTexture(GDefines.TEXTURES + "items/nitro.png");
