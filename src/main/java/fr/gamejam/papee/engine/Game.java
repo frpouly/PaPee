@@ -27,7 +27,6 @@ public class Game extends GGame {
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
 
 
-
     private Map map;
     private Item itemViagra;
 
@@ -127,7 +126,7 @@ public class Game extends GGame {
             GObject o = objects.get(i);
             if ((o instanceof GParticle)) {
                 o.update();
-                if(((GParticle) o).getLifetime()< 0){
+                if (((GParticle) o).getLifetime() < 0) {
                     objects.remove(o);
                 }
             }
