@@ -1,8 +1,6 @@
 package fr.gamejam.papee.entities;
 
-import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.objects.GObject;
-import fr.gamejam.papee.engine.utils.GDefines;
 
 public class Bladder extends GObject {
 
@@ -24,7 +22,7 @@ public class Bladder extends GObject {
         this.peeStartLevel = peeStartLevel;
         this.peeMaxLevel = peeMaxLevel;
         this.peeLevel = peeStartLevel;
-        this.scaleY = sizeY / peeMaxLevel;
+        this.scaleY = (sizeY - 40) / peeMaxLevel;
         this.increaseLevel = INCREASE_PEE_LEVEL_BASE;
         this.peeLevel = peeStartLevel;
     }

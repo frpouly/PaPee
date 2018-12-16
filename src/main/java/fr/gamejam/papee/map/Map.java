@@ -73,11 +73,14 @@ public class Map {
         int papeeX = papee.getPosX();
         int papeeY = papee.getPosY();
 
-        startX = papeeX - (xMaxTiles / 2) - 3;
-        endX = papeeX + (xMaxTiles / 2) + 3;
+        int usedXMaxTiles = (papeeX < Display.getWidth() / 2) ? xMaxTiles : xMaxTiles / 2;
+        int usedYMaxTiles = (papeeY < Display.getHeight() / 2) ? yMaxTiles : yMaxTiles / 2;
 
-        startY = papeeY - (yMaxTiles / 2) - 3;
-        endY = papeeY + (yMaxTiles / 2) + 3;
+        startX = papeeX - (usedXMaxTiles) - 3;
+        endX = papeeX + (usedXMaxTiles) + 3;
+
+        startY = papeeY - (usedYMaxTiles) - 3;
+        endY = papeeY + (usedYMaxTiles) + 3;
     }
 
     public void update() {
@@ -89,7 +92,11 @@ public class Map {
         translateView(xa, ya);
 
         for (int x = startX; x < endX; x++) {
+            if (x < 0) continue;
+
             for (int y = startY; y < endY; y++) {
+                if (y < 0) continue;
+
                 try {
                     tiles[x][y].update();
                 } catch (ArrayIndexOutOfBoundsException ex) {
