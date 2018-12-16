@@ -23,6 +23,12 @@ public class GTexture {
     public static final GTexture UI_BLADDER_3 = loadTexture(GDefines.TEXTURES + "ui/bladder_2.png");
     public static final GTexture UI_BLADDER_2 = loadTexture(GDefines.TEXTURES + "ui/bladder_3.png");
 
+    public static final GTexture CROSS_MINIMAP = loadTexture(GDefines.TEXTURES + "/minimap_cross.png");
+    public static final GTexture CHECK_MINIMAP = loadTexture(GDefines.TEXTURES + "/check_minimap.png");
+    public static final GTexture GUI_MINIMAP = loadTexture(GDefines.TEXTURES + "/gui_minimap.png");
+
+    public static final GTexture GUI_BLADDER = loadTexture(GDefines.TEXTURES + "/gui_bladder.png");
+
 
     private int width, height;
     private int id;

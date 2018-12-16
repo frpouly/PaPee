@@ -6,6 +6,7 @@ import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.ui.UI;
 import fr.gamejam.papee.engine.ui.UIBladder;
+import fr.gamejam.papee.engine.ui.UIMiniMap;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
@@ -34,7 +35,7 @@ public class Game extends GGame {
     public Game() {
         objects.clear();
 
-        LevelLoader l = new LevelLoader("/levels/level1.json");
+        LevelLoader l = new LevelLoader("/levels/level_1.json");
         itemViagra = new ItemViagra(1,600, 200);
 
         PeePuddle peePuddle = new PeePuddle(4, 300, 300);
@@ -44,11 +45,12 @@ public class Game extends GGame {
 
         new Toilets(2, 100, 100);
 
-        PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
+        PaPee papee = new PaPee(200, 200, new Bladder(0, 100));
         map = new Map(papee, l.getTiles());
         papee.setMap(map);
 
         listUI.add(new UIBladder(papee.getBladder()));
+        listUI.add(new UIMiniMap(papee));
 
         new GButton("Create Particle", 800, 400, 16) {
             @Override
