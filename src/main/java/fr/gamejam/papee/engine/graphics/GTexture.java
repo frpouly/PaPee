@@ -23,6 +23,7 @@ public class GTexture {
     public static final GTexture UI_BLADDER_3 = loadTexture(GDefines.TEXTURES + "ui/bladder_2.png");
     public static final GTexture UI_BLADDER_2 = loadTexture(GDefines.TEXTURES + "ui/bladder_3.png");
 
+
     private int width, height;
     private int id;
 
