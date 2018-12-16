@@ -6,6 +6,7 @@ import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.game.Difficulty;
 import org.lwjgl.opengl.Display;
 
 public class Menu extends GGame {
@@ -15,10 +16,29 @@ public class Menu extends GGame {
         if(GGame.window == null)
             GGame.window = new GWindow(GDefines.WIDTH, GDefines.HEIGHT, GDefines.TITLE);
 
-        GButton play = new GButton("PLAY", window.getWidth()/2 - (22 * 4), GGame.window.getHeight() / 2 - 16, 32) {
+        GButton play_easy = new GButton("EASY", window.getWidth()/5 - (22 * 4), GGame.window.getHeight() / 2 - 16, 32) {
 
             @Override
             public void onClick() {
+                GDefines.DIFFICULTY = Difficulty.EASY;
+                GGame.window.start(new Game());
+            }
+        };
+
+        GButton play_medium = new GButton("MEDIUM", window.getWidth()/2 - (22 * 4), GGame.window.getHeight() / 2 - 16, 32) {
+
+            @Override
+            public void onClick() {
+                GDefines.DIFFICULTY = Difficulty.MEDIUM;
+                GGame.window.start(new Game());
+            }
+        };
+
+        GButton play_hard = new GButton("HARD", window.getWidth() - (22 * 16), GGame.window.getHeight() / 2 - 16, 32) {
+
+            @Override
+            public void onClick() {
+                GDefines.DIFFICULTY = Difficulty.HARD;
                 GGame.window.start(new Game());
             }
         };
