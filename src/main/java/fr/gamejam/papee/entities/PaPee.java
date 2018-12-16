@@ -17,7 +17,8 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class PaPee extends GObject {
-    //0.93f
+    public static final float BASE_SPEED = 1f;
+
     private float drag = 0.8f;
     private float speed = 1f, dx = 0.0f, dy = 0.0f;
     private Map map;

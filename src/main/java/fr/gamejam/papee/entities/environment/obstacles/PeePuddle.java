@@ -15,7 +15,7 @@ public class PeePuddle extends Obstacle {
 
     @Override
     public void effect(PaPee papee) {
-        setEffect(new Effect(10));
+        setEffect(new Effect(15));
         getEffect().applyEffect(papee, paPee -> paPee.setDrag(0.95f), paPee -> paPee.setDrag(0.8f));
         getEffect().startEffect();
     }

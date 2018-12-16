@@ -42,15 +42,32 @@ public class Game extends GGame {
         LevelLoader l = new LevelLoader("/levels/level_1.json");
         itemViagra = new ItemViagra(1,600, 200);
 
-        PeePuddle peePuddle = new PeePuddle(4, 300, 300);
-        PeePuddle peePuddle2 = new PeePuddle(4, 300, 400);
-        PeePuddle peePuddle3 = new PeePuddle(4, 300, 500);
-        PeePuddle peePuddle4 = new PeePuddle(4, 300, 600);
         ItemNitro nitro = new ItemNitro(5, 500, 500);
         PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
         Toilets toilets = new Toilets(2, 10000, 5000);
 
         map = new Map(papee, l.getTiles());
+
+        for (int i = 0; i < 250; i++) {
+            int x = 0;
+            int y = 0;
+            do {
+                x = (int)(Math.random() * GDefines.MAP_WIDTH);
+                y = (int)(Math.random() * GDefines.MAP_HEIGHT);
+            } while(map.getTiles()[x][y].isRigid());
+            new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+        }
+
+        for (int i = 0; i < 50; i++) {
+            int x = 0;
+            int y = 0;
+            do {
+                x = (int)(Math.random() * GDefines.MAP_WIDTH);
+                y = (int)(Math.random() * GDefines.MAP_HEIGHT);
+            } while(map.getTiles()[x][y].isRigid());
+            new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+        }
+
         papee.setMap(map);
 
         listUI.add(new UIBladder(papee.getBladder()));

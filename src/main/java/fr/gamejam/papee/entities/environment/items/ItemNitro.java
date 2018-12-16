@@ -10,6 +10,7 @@ import org.lwjgl.util.vector.Vector2f;
 import java.util.Random;
 
 public class ItemNitro extends Item {
+
     public ItemNitro(int ID, float x, float y) {
         super(ID, x, y, ItemType.BONUS, "nitro");
         setTexture(GTexture.NITRO_TEXTURE);
@@ -25,7 +26,7 @@ public class ItemNitro extends Item {
                     paPee.setTexture(GTexture.PLAYER_NITRO);
                 },
                 (paPee) -> {
-                    paPee.setSpeed(speed);
+                    paPee.setSpeed(PaPee.BASE_SPEED);
                     paPee.setTexture(GTexture.PLAYER);
                 });
         getEffect().startEffect();
