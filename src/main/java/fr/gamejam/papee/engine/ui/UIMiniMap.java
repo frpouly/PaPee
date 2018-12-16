@@ -9,7 +9,6 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
 public class UIMiniMap implements UI {
-
     private PaPee papee;
     private Toilets toilet;
 
