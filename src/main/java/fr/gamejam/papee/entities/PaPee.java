@@ -6,11 +6,13 @@ import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
+import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
 import fr.gamejam.papee.game.level.Tile;
 import fr.gamejam.papee.map.Map;
 import org.lwjgl.input.Keyboard;
 
 import java.util.Iterator;
+import java.util.Random;
 
 public class PaPee extends GObject {
     //0.93f
@@ -39,7 +41,7 @@ public class PaPee extends GObject {
             dx += speed;
         }
 
-        if(isCollisionWithWall()) {
+        if (isCollisionWithWall()) {
             dx = -dx;
             dy = -dy;
         }
@@ -66,6 +68,7 @@ public class PaPee extends GObject {
         move();
         manageCollision();
         manageEffect();
+        pee();
     }
 
     @Override
@@ -112,6 +115,17 @@ public class PaPee extends GObject {
 
     public void setMap(Map map) {
         this.map = map;
+    }
+
+    private boolean canPee() {
+        return (int)(Math.random() * 300) == 0;
+    }
+
+    private void pee() {
+        if(canPee()) {
+            PeePuddle peePuddle = new PeePuddle(5, getX(), getY());
+            getBladder().increasePeeLevel(-2);
+        }
     }
 
     private void manageCollision() {
