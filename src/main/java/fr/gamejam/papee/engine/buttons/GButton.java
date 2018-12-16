@@ -18,11 +18,12 @@ public abstract class GButton extends GObject {
      * @param x the x position of the button
      * @param y the y position of the button
      */
-    public GButton(String text, float x, float y) {
-        super(0, x, y, 0, 30, false);
+    public GButton(String text, float x, float y, int size) {
+        super(0, x, y, 0, 0, false);
         this.text = text;
-        textSize = 16;
+        textSize = size;
         this.setSizeX(text.length() * textSize + textSize);
+        this.setSizeY(textSize + textSize);
         this.setVisible(true);
     }
 

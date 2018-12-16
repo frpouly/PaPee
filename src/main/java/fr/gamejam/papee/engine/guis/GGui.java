@@ -22,7 +22,7 @@ public class GGui extends GObject {
     public GGui(int ID, String name, float x, float y, int sizeX, int sizeY) {
         super(ID, x, y, sizeX, sizeY, false);
         this.name = name;
-        this.closeButton = new GButton("x", x + sizeX - 32, y) {
+        this.closeButton = new GButton("x", x + sizeX - 32, y, 16) {
             @Override
             public void onClick() {
                 GGui.this.setVisible(false);

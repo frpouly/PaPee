@@ -1,19 +1,23 @@
 package fr.gamejam.papee.engine.graphics;
 
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL12.*;
+import fr.gamejam.papee.engine.utils.GDefines;
+import org.lwjgl.BufferUtils;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import javax.imageio.ImageIO;
-
-import fr.gamejam.papee.engine.utils.GDefines;
-import org.lwjgl.BufferUtils;
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL12.GL_CLAMP_TO_EDGE;
 
 public class GTexture {
-    public static final GTexture default_font = loadTexture(GDefines.FONTS + "default_font.png");
+    public static final GTexture DEFAULT_FONT = loadTexture(GDefines.FONTS + "default_font.png");
+    public static final GTexture VIAGRA_TEXTURE = loadTexture(GDefines.TEXTURES + "items/viagra.png");
+    public static final GTexture BEER_TEXTURE = loadTexture(GDefines.TEXTURES + "items/beer.png");
+    public static final GTexture NITRO_TEXTURE = loadTexture(GDefines.TEXTURES + "items/nitro.png");
+    public static final GTexture TILE_SET = loadTexture(GDefines.TEXTURES + "obstacles/obstacles_tileset.png");
+    public static final GTexture TOILETS = loadTexture(GDefines.TEXTURES + "obstacles/toilets.png");
 
     private int width, height;
     private int id;
