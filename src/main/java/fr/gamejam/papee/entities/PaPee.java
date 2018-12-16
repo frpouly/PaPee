@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class PaPee extends GObject {
     //0.93f
-    private float drag = 0.8f;
+    private float drag = 0.899999f;
     private float speed = 1f, dx = 0.0f, dy = 0.0f;
     private Map map;
     private Bladder bladder;
@@ -31,10 +31,10 @@ public class PaPee extends GObject {
     }
 
     private void move() {
-        if (Keyboard.isKeyDown(Keyboard.KEY_Z)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
             dy -= speed;
         }
-        if (Keyboard.isKeyDown(Keyboard.KEY_Q)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
             dx -= speed;
         }
         if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
@@ -44,13 +44,22 @@ public class PaPee extends GObject {
             dx += speed;
         }
 
-        if (isCollisionWithWall()) {
-            dx = -dx;
-            dy = -dy;
+        int xStep = (int) Math.abs(dx * 100);
+        for (int i = 0; i < xStep; i++) {
+            if (!getMap().isSolidTile(dx / xStep, 0f)) {
+                x += dx / xStep;
+            } else {
+                dx = 0;
+            }
         }
-
-        x += dx;
-        y += dy;
+        int yStep = (int) Math.abs(dy * 100);
+        for (int i = 0; i < yStep; i++) {
+            if (!getMap().isSolidTile(0f, dy / yStep)) {
+                y += dy / yStep;
+            } else {
+                dy = 0;
+            }
+        }
 
         dx *= drag;
         dy *= drag;

@@ -57,6 +57,21 @@ public class Map {
         return tiles;
     }
 
+    public boolean isSolidTile(float xa, float ya) {
+
+        int x0 = (int) (papee.getX() + xa + 8) / GDefines.TILE_WIDTH;
+        int x1 = (int) (papee.getX() + xa + 54) / GDefines.TILE_WIDTH;
+        int y0 = (int) (papee.getY() + ya + 54) / GDefines.TILE_HEIGHT;
+        int y1 = (int) (papee.getY() + ya) / GDefines.TILE_HEIGHT;
+
+        if (getTiles()[x0][y0].isRigid()) return true;
+        if (getTiles()[x1][y0].isRigid()) return true;
+        if (getTiles()[x1][y1].isRigid()) return true;
+        if (getTiles()[x0][y1].isRigid()) return true;
+
+        return false;
+    }
+
     public void setTiles(Tile[][] tiles) {
         this.tiles = tiles;
     }
