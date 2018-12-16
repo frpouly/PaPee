@@ -1,43 +1,45 @@
 package fr.gamejam.papee.engine;
 
 import fr.gamejam.papee.engine.buttons.GButton;
-import fr.gamejam.papee.engine.components.GWindow;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.graphics.GTexture;
-import fr.gamejam.papee.engine.guis.GGui;
-import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.engine.ui.UI;
+import fr.gamejam.papee.engine.ui.UIBladder;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.Bladder;
 import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.items.Item;
-import fr.gamejam.papee.entities.environment.items.ItemBeer;
-import fr.gamejam.papee.entities.environment.items.ItemNitro;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
 import fr.gamejam.papee.game.level.LevelLoader;
+import fr.gamejam.papee.map.Map;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Game extends GGame {
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
-    /*
-        Test GUI
-     */
-    Item itemViagra;
 
+    private Map map;
+    private Item itemViagra;
 
+    private List<UI> listUI = new ArrayList<>();
 
-    private PaPee papee;
-
-    public Game()
-    {
+    public Game() {
         objects.clear();
+
         LevelLoader l = new LevelLoader("/levels/level_1.json");
-        itemViagra = new ItemViagra(1,500, 500);
-        papee = new PaPee(5, 5, new Bladder(10, 100));
+        itemViagra = new ItemViagra(1,600, 200);
+
+        PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
+        map = new Map(papee, l.getTiles());
+        papee.setMap(map);
+
+        listUI.add(new UIBladder(papee.getBladder()));
+
         new GButton("Create Particle", 800, 400, 16) {
             @Override
             public void onClick() {
@@ -53,14 +55,27 @@ public class Game extends GGame {
         };
     }
 
+    @Override
     public void update() {
-        super.update();
-        papee.getBladder().increasePeeLevel();
+        map.update();
 
         // Check if Bladder is full
-        if(papee.getBladder().isFull())
+        if(map.getPapee().getBladder().isFull())
         {
             GGame.window.start(new GameOver());
+        }
+
+        for (UI ui : listUI) {
+            ui.update();
+        }
+    }
+
+    @Override
+    public void render() {
+        map.render();
+
+        for (UI ui : listUI) {
+            ui.render();
         }
     }
 }
