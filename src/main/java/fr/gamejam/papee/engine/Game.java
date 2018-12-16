@@ -13,6 +13,7 @@ import fr.gamejam.papee.entities.environment.Effect;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.entities.environment.items.ItemViagra;
+import fr.gamejam.papee.entities.environment.obstacles.Toilets;
 import fr.gamejam.papee.game.level.LevelLoader;
 import fr.gamejam.papee.map.Map;
 import org.lwjgl.util.vector.Vector2f;
@@ -33,8 +34,8 @@ public class Game extends GGame {
         objects.clear();
 
         LevelLoader l = new LevelLoader("/levels/level_1.json");
-
-        Item viagra = new ItemViagra(1,600, 200);
+        itemViagra = new ItemViagra(1,600, 200);
+        Toilets toilets = new Toilets(2, 100, 100);
 
         PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
         map = new Map(papee, l.getTiles());
@@ -65,6 +66,10 @@ public class Game extends GGame {
         if(map.getPapee().getBladder().isFull())
         {
             GGame.window.start(new GameOver());
+        }
+        if(map.getPapee().isWon())
+        {
+            GGame.window.start(new Congrats());
         }
 
         for (UI ui : listUI) {
