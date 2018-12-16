@@ -22,7 +22,6 @@ import java.util.Random;
 
 public class Game extends GGame {
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
-    public static LevelLoader level;
 
     private Map map;
     private Item itemViagra;
@@ -37,6 +36,7 @@ public class Game extends GGame {
 
         PaPee papee = new PaPee(200, 200, new Bladder(10, 100));
         map = new Map(papee, l.getTiles());
+        papee.setMap(map);
 
         listUI.add(new UIBladder(papee.getBladder()));
 
