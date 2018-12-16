@@ -9,6 +9,7 @@ import fr.gamejam.papee.entities.environment.items.Item;
 import fr.gamejam.papee.game.level.Tile;
 import fr.gamejam.papee.map.Map;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
 
 import java.util.Iterator;
 
@@ -21,7 +22,7 @@ public class PaPee extends GObject {
     private boolean won;
 
     public PaPee(float x, float y, Bladder bladder) {
-        super(0, x, y, 32, 32, true);
+        super(0, x, y, 64, 64, true);
         this.bladder = bladder;
     }
 
