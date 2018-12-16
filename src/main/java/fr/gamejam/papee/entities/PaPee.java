@@ -10,7 +10,6 @@ import fr.gamejam.papee.game.level.Tile;
 import fr.gamejam.papee.map.Map;
 import org.lwjgl.input.Keyboard;
 
-import java.awt.*;
 import java.util.Iterator;
 
 public class PaPee extends GObject {
@@ -19,6 +18,7 @@ public class PaPee extends GObject {
     private float speed = 1f, dx = 0.0f, dy = 0.0f;
     private Map map;
     private Bladder bladder;
+    private boolean won;
 
     public PaPee(float x, float y, Bladder bladder) {
         super(0, x, y, 32, 32, true);
@@ -26,16 +26,16 @@ public class PaPee extends GObject {
     }
 
     private void move() {
-        if(Keyboard.isKeyDown(Keyboard.KEY_Z)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_Z)) {
             dy -= speed;
         }
-        if(Keyboard.isKeyDown(Keyboard.KEY_Q)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_Q)) {
             dx -= speed;
         }
-        if(Keyboard.isKeyDown(Keyboard.KEY_S)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
             dy += speed;
         }
-        if(Keyboard.isKeyDown(Keyboard.KEY_D)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
             dx += speed;
         }
 
@@ -53,8 +53,7 @@ public class PaPee extends GObject {
 
     private boolean isCollisionWithWall() {
         Tile[][] tmp = map.getTiles();
-
-        if (!this.getBounds().intersects(new Rectangle(sizeX, sizeY, tmp[getPosX()][getPosY()].getSizeX(), tmp[getPosX()][getPosY()].getSizeX())) && tmp[getPosX()][getPosY()].isRigid()) {
+        if (tmp[getPosX()][getPosY()].isRigid() || tmp[getPosX() + 1][getPosY()].isRigid() || tmp[getPosX()][getPosY() + 1].isRigid()) {
             return true;
         }
         return false;
@@ -118,13 +117,16 @@ public class PaPee extends GObject {
     private void manageCollision() {
         Iterator<GObject> iterator = Game.objects.iterator();
 
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             GObject o = iterator.next();
-            if(o instanceof EnvironmentObject) {
-                EnvironmentObject obj = ((EnvironmentObject)o);
-                if(isCollision(obj)) {
+
+            if (o instanceof EnvironmentObject) {
+                EnvironmentObject obj = ((EnvironmentObject) o);
+
+                if (isCollision(obj)) {
                     obj.effect(this);
-                    if(o instanceof Item) {
+
+                    if (o instanceof Item) {
                         iterator.remove();
                     }
                 }
@@ -132,17 +134,25 @@ public class PaPee extends GObject {
         }
     }
 
-    private  void manageEffect() {
+    private void manageEffect() {
         Iterator<Effect> iterator = Game.effects.iterator();
 
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Effect effect = iterator.next();
-            if(effect.getEffectTime() <= 0) {
+            if (effect.getEffectTime() <= 0) {
                 effect.stopEffect();
                 iterator.remove();
             } else {
                 effect.setEffectTime(effect.getEffectTime() - 1);
             }
         }
+    }
+
+    public boolean isWon() {
+        return won;
+    }
+
+    public void hasWon() {
+        this.won = true;
     }
 }
