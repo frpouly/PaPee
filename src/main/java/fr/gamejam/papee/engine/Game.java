@@ -49,7 +49,7 @@ public class Game extends GGame {
 
         map = new Map(papee, l.getTiles());
 
-        for (int i = 0; i < 250; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 2; i++) {
             int x = 0;
             int y = 0;
             do {
@@ -59,7 +59,7 @@ public class Game extends GGame {
             new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 5; i++) {
             int x = 0;
             int y = 0;
             do {
@@ -69,7 +69,7 @@ public class Game extends GGame {
             new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 4; i++) {
             int x = 0;
             int y = 0;
             do {
@@ -79,7 +79,7 @@ public class Game extends GGame {
             new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
         }
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < GDefines.MAP_WIDTH / 6; i++) {
             int x = 0;
             int y = 0;
             do {
