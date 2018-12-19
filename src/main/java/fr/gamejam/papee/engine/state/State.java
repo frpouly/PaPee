@@ -2,7 +2,9 @@ package fr.gamejam.papee.engine.state;
 
 import fr.gamejam.papee.engine.components.GWindow;
 import fr.gamejam.papee.engine.ui.UI;
+import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.engine.utils.IRunnable;
+import fr.gamejam.papee.game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,11 @@ public abstract class State implements IRunnable {
 
     public State() {
         this.listUI = new ArrayList<>();
+
+        if (getWindow() == null)
+            setWindow(new GWindow(GDefines.WIDTH, GDefines.HEIGHT, GDefines.TITLE));
+
+        Game.setWon(false);
     }
 
     public static GWindow getWindow() {

@@ -5,10 +5,12 @@ import fr.gamejam.papee.engine.state.GameOverState;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.engine.state.State;
 import fr.gamejam.papee.engine.ui.UI;
 import fr.gamejam.papee.engine.ui.UIBladder;
 import fr.gamejam.papee.engine.ui.UIMiniMap;
 import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.engine.utils.IRunnable;
 import fr.gamejam.papee.entities.papee.Bladder;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.effect.Effect;
@@ -21,8 +23,9 @@ import fr.gamejam.papee.game.map.Map;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game extends GGame {
-    public static ArrayList<Effect> effects = new ArrayList<Effect>();
+public class Game /*extends GGame*/ implements IRunnable {
+    public static List<Effect> effects = new ArrayList<>();
+    public static List<GObject> objects = new ArrayList<>();
 
     private Map map;
     private Item itemViagra;
@@ -48,6 +51,8 @@ public class Game extends GGame {
         toilets.setMap(map);
         toilets.recreatePosition(); // C'est dégueu mais j'ai pas le temps de faire un truc potable
 
+        objects.add(toilets);
+
         for (int i = 0; i < GDefines.MAP_WIDTH / 4; i++) {
             int x = 0;
             int y = 0;
@@ -55,7 +60,8 @@ public class Game extends GGame {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            GObject o = new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            objects.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 7; i++) {
@@ -65,7 +71,8 @@ public class Game extends GGame {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            GObject o = new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            objects.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 6; i++) {
@@ -75,7 +82,8 @@ public class Game extends GGame {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            GObject o = new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            objects.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 16; i++) {
@@ -85,7 +93,8 @@ public class Game extends GGame {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            new ItemWhisky(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            GObject o = new ItemWhisky(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            objects.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 8; i++) {
@@ -95,13 +104,34 @@ public class Game extends GGame {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            new ItemViagra(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            GObject o = new ItemViagra(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            objects.add(o);
         }
 
         papee.setMap(map);
 
         listUI.add(new UIBladder(papee.getBladder()));
         listUI.add(new UIMiniMap(papee, toilets));
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public static boolean isWon() {
+        return won;
+    }
+
+    public static void setWon(boolean won) {
+        Game.won = won;
+    }
+
+    @Override
+    public void init() {
 
     }
 
@@ -141,19 +171,8 @@ public class Game extends GGame {
         }
     }
 
-    public Map getMap() {
-        return map;
-    }
+    @Override
+    public void dispose() {
 
-    public void setMap(Map map) {
-        this.map = map;
-    }
-
-    public static boolean isWon() {
-        return won;
-    }
-
-    public static void setWon(boolean won) {
-        Game.won = won;
     }
 }

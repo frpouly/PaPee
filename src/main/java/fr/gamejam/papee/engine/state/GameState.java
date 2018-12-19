@@ -6,8 +6,9 @@ public class GameState extends State {
     private Game game;
 
     public GameState() {
-        System.out.println("Construct!");
+
     }
+
 
     @Override
     public void init() {
