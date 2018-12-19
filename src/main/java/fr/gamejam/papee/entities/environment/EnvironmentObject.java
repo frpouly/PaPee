@@ -1,8 +1,9 @@
 package fr.gamejam.papee.entities.environment;
 
+import fr.gamejam.papee.effect.Effect;
 import fr.gamejam.papee.engine.objects.GObject;
-import fr.gamejam.papee.entities.PaPee;
-import fr.gamejam.papee.map.Map;
+import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.game.map.Map;
 
 public abstract class EnvironmentObject extends GObject {
     private Map map; // C'est dégueu mais j'ai pas le temps de faire un truc potable
@@ -38,5 +39,5 @@ public abstract class EnvironmentObject extends GObject {
         this.map = map;
     }
 
-    public abstract void effect(PaPee papee);
+    public abstract void effect(Papee papee);
 }

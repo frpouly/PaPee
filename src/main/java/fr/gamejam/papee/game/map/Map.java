@@ -1,19 +1,19 @@
-package fr.gamejam.papee.map;
+package fr.gamejam.papee.game.map;
 
-import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.entities.PaPee;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
-import fr.gamejam.papee.game.level.Tile;
+import fr.gamejam.papee.game.tile.Tile;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.opengl.GL11.*;
 
 public class Map {
-    private PaPee papee;
+    private Papee papee;
     private Tile[][] tiles;
 
     private float xScroll, yScroll;
@@ -28,7 +28,7 @@ public class Map {
             -GDefines.MAP_HEIGHT * GDefines.TILE_HEIGHT + Display.getHeight()
     };
 
-    public Map(PaPee papee, Tile[][] tiles) {
+    public Map(Papee papee, Tile[][] tiles) {
         this.papee = papee;
         this.tiles = tiles;
 
@@ -46,11 +46,11 @@ public class Map {
         if (yScroll < this.bounds[3]) yScroll = this.bounds[3];
     }
 
-    public PaPee getPapee() {
+    public Papee getPapee() {
         return papee;
     }
 
-    public void setPapee(PaPee papee) {
+    public void setPapee(Papee papee) {
         this.papee = papee;
     }
 
@@ -112,16 +112,15 @@ public class Map {
 
                 try {
                     tiles[x][y].update();
-                } catch (ArrayIndexOutOfBoundsException ex) {
-                    // ignore
+                } catch (ArrayIndexOutOfBoundsException ignored) {
+
                 }
             }
         }
 
         for (GObject o : Game.objects) {
             if (o instanceof EnvironmentObject) {
-                EnvironmentObject obj = ((EnvironmentObject) o);
-                obj.update();
+                o.update();
             }
         }
 
@@ -143,24 +142,14 @@ public class Map {
 
                 try {
                     tiles[x][y].render();
-                } catch (ArrayIndexOutOfBoundsException ex) {
-                    // ignore
+                } catch (ArrayIndexOutOfBoundsException ignored) {
+
                 }
             }
         }
 
         for (GObject o : Game.objects) {
-            if (o instanceof EnvironmentObject) {
-                EnvironmentObject obj = ((EnvironmentObject) o);
-                obj.render();
-
-
-            }
-        }
-
-        for (int i = 0; i < Game.objects.size(); i++) {
-            GObject o = Game.objects.get(i);
-            if ((o instanceof GParticle)) {
+            if (o instanceof EnvironmentObject || o instanceof GParticle) {
                 o.render();
             }
         }

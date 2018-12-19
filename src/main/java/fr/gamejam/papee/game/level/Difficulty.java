@@ -1,4 +1,4 @@
-package fr.gamejam.papee.game;
+package fr.gamejam.papee.game.level;
 
 public enum Difficulty {
     EASY(0),

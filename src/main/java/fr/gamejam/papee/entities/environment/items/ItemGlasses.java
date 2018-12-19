@@ -1,6 +1,6 @@
 package fr.gamejam.papee.entities.environment.items;
 
-import fr.gamejam.papee.entities.PaPee;
+import fr.gamejam.papee.entities.papee.Papee;
 
 public class ItemGlasses extends Item {
     public ItemGlasses(int ID, float x, float y) {
@@ -8,7 +8,7 @@ public class ItemGlasses extends Item {
     }
 
     @Override
-    public void effect(PaPee papee) {
+    public void effect(Papee papee) {
 
     }
 }

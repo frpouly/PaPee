@@ -1,12 +1,12 @@
 package fr.gamejam.papee.engine.graphics;
 
+import fr.gamejam.papee.engine.utils.GTextures;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 
 import static org.lwjgl.opengl.GL11.*;
 
 public class GGraphics {
-
     public static String chars = "abcdefghijklmnopqrstuvwxyz " + "0123456789:!?.,()°+-/*#|{} "
             + "=%@°                       " + "                           " + "";
 
@@ -21,7 +21,7 @@ public class GGraphics {
     public static void renderText(String text, float x, float y, int size, float[] color) {
         text = text.toLowerCase();
         glEnable(GL_TEXTURE_2D);
-        GTexture.DEFAULT_FONT.bind();
+        GTextures.DEFAULT_FONT.bind();
         glBegin(GL_QUADS);
         glColor4f(color[0], color[1], color[2], color[3]);
         for (int i = 0; i < text.length(); i++) {
@@ -31,7 +31,7 @@ public class GGraphics {
         }
         glColor4f(1, 1, 1, 1);
         glEnd();
-        GTexture.DEFAULT_FONT.unbind();
+        GTextures.DEFAULT_FONT.unbind();
         glDisable(GL_TEXTURE_2D);
     }
 

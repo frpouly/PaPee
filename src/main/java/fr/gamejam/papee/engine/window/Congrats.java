@@ -1,4 +1,4 @@
-package fr.gamejam.papee.engine;
+package fr.gamejam.papee.engine.window;
 
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.game.GGame;

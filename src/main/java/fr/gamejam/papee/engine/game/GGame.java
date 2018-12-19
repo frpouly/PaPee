@@ -19,6 +19,7 @@ public abstract class GGame {
      * Called every frame (updating position ...)
      */
     public void update() {
+        ///*
         for (int i = 0; i < objects.size(); i++) {
             GObject o = objects.get(i);
             o.update();
@@ -28,17 +29,20 @@ public abstract class GGame {
                 }
             }
         }
+        //*/
     }
 
     /**
      * Called every frame (rendering objects ...)
      */
     public void render() {
+        ///*
         for (int i = 0; i < objects.size(); i++) {
             GObject o = objects.get(i);
             if (!(o instanceof EnvironmentObject)) {
                 o.render();
             }
         }
+        //*/
     }
 }

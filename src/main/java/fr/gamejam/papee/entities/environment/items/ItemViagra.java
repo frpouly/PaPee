@@ -1,18 +1,18 @@
 package fr.gamejam.papee.entities.environment.items;
 
-import fr.gamejam.papee.engine.graphics.GTexture;
-import fr.gamejam.papee.entities.Bladder;
-import fr.gamejam.papee.entities.PaPee;
-import fr.gamejam.papee.entities.environment.Effect;
+import fr.gamejam.papee.engine.utils.GTextures;
+import fr.gamejam.papee.entities.papee.Bladder;
+import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.effect.Effect;
 
 public class ItemViagra extends Item {
     public ItemViagra(int ID, float x, float y) {
         super(ID, x, y, "viagra");
-        setTexture(GTexture.VIAGRA_TEXTURE);
+        setTexture(GTextures.VIAGRA_TEXTURE);
     }
 
     @Override
-    public void effect(PaPee papee) {
+    public void effect(Papee papee) {
         setEffect(new Effect(180, null));
         getEffect().applyEffect(papee , paPee -> paPee.getBladder().setIncreaseLevel(0),
                                  paPee -> paPee.getBladder().setIncreaseLevel(Bladder.INCREASE_PEE_LEVEL_BASE));

@@ -3,8 +3,6 @@ package fr.gamejam.papee.engine.animation;
 import fr.gamejam.papee.engine.graphics.GTexture;
 
 public class GAnimation {
-    public static final GAnimation UI_BLADDER = new GAnimation(10, GTexture.UI_BLADDER_1, GTexture.UI_BLADDER_2, GTexture.UI_BLADDER_3);
-
     private final int BASE_CROP_ROTATION;
     private int cropRotation;
     private int currentCrop;

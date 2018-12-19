@@ -1,6 +1,6 @@
 package fr.gamejam.papee.engine.utils;
 
-import fr.gamejam.papee.game.Difficulty;
+import fr.gamejam.papee.game.level.Difficulty;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
@@ -10,7 +10,7 @@ public class GDefines {
      * Constants
      */
 
-    public static final String TITLE = "PaPee";
+    public static final String TITLE = "Papee";
     public static final String VERSION = "0.1";
 
     public static Difficulty DIFFICULTY = Difficulty.HARD;

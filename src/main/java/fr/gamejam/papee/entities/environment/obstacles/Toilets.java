@@ -1,13 +1,13 @@
 package fr.gamejam.papee.entities.environment.obstacles;
 
-import fr.gamejam.papee.engine.graphics.GTexture;
+import fr.gamejam.papee.engine.utils.GTextures;
 import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.entities.PaPee;
+import fr.gamejam.papee.entities.papee.Papee;
 
 public class Toilets extends Obstacle {
     public Toilets(int ID, float x, float y) {
         super(ID, x, y, "toilets");
-        setTexture(GTexture.TOILETS);
+        setTexture(GTextures.TOILETS);
     }
 
     public void recreatePosition() { // C'est dégueu mais j'ai pas le temps de faire un truc potable
@@ -24,7 +24,7 @@ public class Toilets extends Obstacle {
     }
 
     @Override
-    public void effect(PaPee papee) {
+    public void effect(Papee papee) {
         papee.hasWon();
     }
 

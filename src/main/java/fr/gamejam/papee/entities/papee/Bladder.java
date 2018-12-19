@@ -1,4 +1,4 @@
-package fr.gamejam.papee.entities;
+package fr.gamejam.papee.entities.papee;
 
 import fr.gamejam.papee.engine.objects.GObject;
 

@@ -1,27 +1,25 @@
-package fr.gamejam.papee.entities;
+package fr.gamejam.papee.entities.papee;
 
-import fr.gamejam.papee.engine.Game;
+import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.fx.GParticle;
-import fr.gamejam.papee.engine.graphics.GTexture;
+import fr.gamejam.papee.engine.utils.GTextures;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.entities.environment.Effect;
+import fr.gamejam.papee.effect.Effect;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
-import fr.gamejam.papee.entities.environment.items.ItemNitro;
 import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
-import fr.gamejam.papee.game.level.Tile;
-import fr.gamejam.papee.map.Map;
+import fr.gamejam.papee.game.tile.Tile;
+import fr.gamejam.papee.game.map.Map;
 import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.Iterator;
 
 import static org.lwjgl.opengl.GL11.*;
 
-public class PaPee extends GObject {
+public class Papee extends GObject {
     public static final float BASE_SPEED = 1f;
 
     //0.93f
@@ -31,10 +29,10 @@ public class PaPee extends GObject {
     private Bladder bladder;
     private boolean won;
 
-    public PaPee(float x, float y, Bladder bladder) {
+    public Papee(float x, float y, Bladder bladder) {
         super(0, x, y, 64, 64, true);
         this.bladder = bladder;
-        setTexture(GTexture.PLAYER);
+        setTexture(GTextures.PLAYER);
     }
 
     private void move() {

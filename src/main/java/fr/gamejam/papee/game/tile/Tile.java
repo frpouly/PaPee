@@ -1,7 +1,7 @@
-package fr.gamejam.papee.game.level;
+package fr.gamejam.papee.game.tile;
 
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.graphics.GTexture;
+import fr.gamejam.papee.engine.utils.GTextures;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 
@@ -9,7 +9,7 @@ public class Tile extends GObject {
 
     public Tile(int ID, float x, float y, boolean rigid) {
         super(ID, x, y, 32, 32, rigid);
-        setTexture(GTexture.TILE_SET);
+        setTexture(GTextures.TILE_SET);
     }
 
     @Override

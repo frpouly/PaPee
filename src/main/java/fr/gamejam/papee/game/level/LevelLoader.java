@@ -3,6 +3,7 @@ package fr.gamejam.papee.game.level;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.engine.utils.Registry;
+import fr.gamejam.papee.game.tile.Tile;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -10,7 +11,6 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Constructor;
 
 public class LevelLoader {
 

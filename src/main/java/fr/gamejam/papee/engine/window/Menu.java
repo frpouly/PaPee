@@ -1,13 +1,13 @@
-package fr.gamejam.papee.engine;
+package fr.gamejam.papee.engine.window;
 
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.components.GWindow;
 import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.graphics.GTexture;
+import fr.gamejam.papee.engine.utils.GTextures;
 import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.game.Difficulty;
-import org.lwjgl.opengl.Display;
+import fr.gamejam.papee.game.level.Difficulty;
+import fr.gamejam.papee.game.Game;
 
 public class Menu extends GGame {
 
@@ -55,6 +55,6 @@ public class Menu extends GGame {
     public void render() {
         super.render();
 
-        GGraphics.renderImage(GTexture.ICON_TEXTURE, startX, startY, endX, endY, GDefines.WHITE);
+        GGraphics.renderImage(GTextures.ICON_TEXTURE, startX, startY, endX, endY, GDefines.WHITE);
     }
 }

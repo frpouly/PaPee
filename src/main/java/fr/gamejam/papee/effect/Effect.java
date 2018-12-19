@@ -1,19 +1,14 @@
-package fr.gamejam.papee.entities.environment;
+package fr.gamejam.papee.effect;
 
-import fr.gamejam.papee.engine.Game;
-import fr.gamejam.papee.engine.fx.GParticle;
+import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.graphics.GTexture;
-import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.entities.PaPee;
-import org.lwjgl.util.vector.Vector2f;
-
-import java.util.function.Function;
 
 public class Effect {
     private int effectTime;
     private IEffect startEffect;
     private IEffect stopEffect;
-    private PaPee papee;
+    private Papee papee;
     private boolean generateParticle;
     private GTexture particleName;
 
@@ -37,13 +32,13 @@ public class Effect {
         this.effectTime = (effectTime > 0) ? effectTime : 0;
     }
 
-    public void applyEffect(PaPee paPee, IEffect startEffect, IEffect stopEffect) {
+    public void applyEffect(Papee paPee, IEffect startEffect, IEffect stopEffect) {
         this.papee = paPee;
         this.stopEffect = stopEffect;
         this.startEffect = startEffect;
     }
 
-    public void applyEffect(PaPee paPee, IEffect startEffect) {
+    public void applyEffect(Papee paPee, IEffect startEffect) {
         applyEffect(paPee, startEffect, null);
     }
 

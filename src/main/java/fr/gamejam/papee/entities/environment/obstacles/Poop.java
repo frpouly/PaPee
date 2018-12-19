@@ -1,6 +1,6 @@
 package fr.gamejam.papee.entities.environment.obstacles;
 
-import fr.gamejam.papee.entities.PaPee;
+import fr.gamejam.papee.entities.papee.Papee;
 
 public class Poop extends Obstacle {
     public Poop(int ID, float x, float y) {
@@ -8,7 +8,7 @@ public class Poop extends Obstacle {
     }
 
     @Override
-    public void effect(PaPee papee) {
+    public void effect(Papee papee) {
 
     }
 

@@ -1,27 +1,25 @@
-package fr.gamejam.papee.engine;
+package fr.gamejam.papee.game;
 
-import fr.gamejam.papee.engine.buttons.GButton;
+import fr.gamejam.papee.engine.window.Congrats;
+import fr.gamejam.papee.engine.window.GameOver;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.game.GGame;
-import fr.gamejam.papee.engine.graphics.GTexture;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.ui.UI;
 import fr.gamejam.papee.engine.ui.UIBladder;
 import fr.gamejam.papee.engine.ui.UIMiniMap;
 import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.entities.Bladder;
-import fr.gamejam.papee.entities.PaPee;
-import fr.gamejam.papee.entities.environment.Effect;
+import fr.gamejam.papee.entities.papee.Bladder;
+import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.effect.Effect;
 import fr.gamejam.papee.entities.environment.items.*;
 import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
 import fr.gamejam.papee.entities.environment.obstacles.Toilets;
 import fr.gamejam.papee.game.level.LevelLoader;
-import fr.gamejam.papee.map.Map;
-import org.lwjgl.util.vector.Vector2f;
+import fr.gamejam.papee.game.map.Map;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Game extends GGame {
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
@@ -42,7 +40,7 @@ public class Game extends GGame {
         };
 
         LevelLoader l = new LevelLoader(levels[(int) (Math.random() * levels.length)]);
-        PaPee papee = new PaPee(1200, 1000, new Bladder(10, 100));
+        Papee papee = new Papee(1200, 1000, new Bladder(10, 100));
         Toilets toilets = new Toilets(2, (int) (Math.random() * GDefines.TILE_WIDTH * GDefines.MAP_WIDTH), (int) (Math.random() * GDefines.TILE_HEIGHT * GDefines.MAP_HEIGHT));
 
         map = new Map(papee, l.getTiles());
@@ -137,11 +135,8 @@ public class Game extends GGame {
     public void render() {
         map.render();
 
-
         for (UI ui : listUI) {
             ui.render();
         }
-
-
     }
 }
