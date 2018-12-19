@@ -3,6 +3,7 @@ package fr.gamejam.papee.entities.environment.obstacles;
 import fr.gamejam.papee.engine.utils.GTextures;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.game.Game;
 
 public class Toilets extends Obstacle {
     public Toilets(int ID, float x, float y) {
@@ -25,7 +26,7 @@ public class Toilets extends Obstacle {
 
     @Override
     public void effect(Papee papee) {
-        papee.hasWon();
+        Game.setWon(true);
     }
 
     public int getPosX() {

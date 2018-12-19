@@ -177,8 +177,6 @@ public class Papee extends GObject {
                         Game.objects.remove(o);
                     }
                 }
-
-
             }
         }
 
@@ -207,15 +205,5 @@ public class Papee extends GObject {
                 }
             }
         }
-
-
-    }
-
-    public boolean isWon() {
-        return won;
-    }
-
-    public void hasWon() {
-        this.won = true;
     }
 }

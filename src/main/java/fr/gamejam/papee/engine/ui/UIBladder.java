@@ -7,15 +7,12 @@ import fr.gamejam.papee.entities.papee.Bladder;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.game.level.Difficulty;
 
-public class UIBladder implements UI {
+public class UIBladder extends UI {
     private Bladder bladder;
     //private GAnimation animation;
 
-    public UIBladder(Papee papee) {
-        this(papee.getBladder());
-    }
-
     public UIBladder(Bladder bladder) {
+        super(bladder.getX(), bladder.getY(), bladder.getSizeX(), bladder.getSizeY(), null);
         this.bladder = bladder;
     //    this.animation = GAnimation.UI_BLADDER;
     }

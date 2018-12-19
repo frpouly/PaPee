@@ -8,7 +8,7 @@ import fr.gamejam.papee.entities.environment.obstacles.Toilets;
 import fr.gamejam.papee.game.level.Difficulty;
 import org.lwjgl.opengl.GL11;
 
-public class UIMiniMap implements UI {
+public class UIMiniMap extends UI {
     private Papee papee;
     private Toilets toilet;
 
@@ -19,6 +19,7 @@ public class UIMiniMap implements UI {
      */
 
     public UIMiniMap(Papee papee, Toilets toilet) {
+        super(0, 0, 0, 0, null);
         this.papee = papee;
         this.toilet = toilet;
 

@@ -65,7 +65,7 @@ public class GObject {
     }
 
     /**
-     * @return true if this object is out of the bounds of the window
+     * @return true if this object is out of the bounds of the state
      */
     public boolean isOutOfWindowBound() {
         if (!this.getBounds().intersects(new Rectangle(sizeX, sizeY, GDefines.WIDTH - 2 * sizeX, GDefines.HEIGHT - 2 * sizeY))) {

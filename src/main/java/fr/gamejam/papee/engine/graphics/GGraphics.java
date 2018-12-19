@@ -144,9 +144,9 @@ public class GGraphics {
     }
 
     /**
-     * @param width the width of the window
-     * @param height the height of the window
-     * Initializing OpenGL context with the dimension of the window
+     * @param width the width of the state
+     * @param height the height of the state
+     * Initializing OpenGL context with the dimension of the state
      */
     public static void init(int width, int height) {
         glViewport(0, 0, width, height);

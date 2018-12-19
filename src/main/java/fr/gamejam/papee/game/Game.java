@@ -1,7 +1,7 @@
 package fr.gamejam.papee.game;
 
-import fr.gamejam.papee.engine.window.Congrats;
-import fr.gamejam.papee.engine.window.GameOver;
+import fr.gamejam.papee.engine.state.CongratsState;
+import fr.gamejam.papee.engine.state.GameOverState;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.objects.GObject;
@@ -24,11 +24,12 @@ import java.util.List;
 public class Game extends GGame {
     public static ArrayList<Effect> effects = new ArrayList<Effect>();
 
-
     private Map map;
     private Item itemViagra;
 
     private List<UI> listUI = new ArrayList<>();
+
+    private static boolean won = false;
 
     public Game() {
         objects.clear();
@@ -110,10 +111,10 @@ public class Game extends GGame {
 
         // Check if Bladder is full
         if (map.getPapee().getBladder().isFull()) {
-            GGame.window.start(new GameOver());
+            GGame.window.start(new GameOverState());
         }
-        if (map.getPapee().isWon()) {
-            GGame.window.start(new Congrats());
+        if (isWon()) {
+            GGame.window.start(new CongratsState());
         }
 
         for (UI ui : listUI) {
@@ -138,5 +139,21 @@ public class Game extends GGame {
         for (UI ui : listUI) {
             ui.render();
         }
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public static boolean isWon() {
+        return won;
+    }
+
+    public static void setWon(boolean won) {
+        Game.won = won;
     }
 }

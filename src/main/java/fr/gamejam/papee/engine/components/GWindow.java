@@ -19,7 +19,7 @@ public class GWindow extends GRunnable {
     }
 
     /**
-     * Display the window with OpenGL context initialized !
+     * Display the state with OpenGL context initialized !
      */
     public void display() {
         try {

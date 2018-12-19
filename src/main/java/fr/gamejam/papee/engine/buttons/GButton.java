@@ -1,25 +1,19 @@
 package fr.gamejam.papee.engine.buttons;
 
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.engine.ui.UI;
 import fr.gamejam.papee.engine.utils.GDefines;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 
-public abstract class GButton extends GObject {
-
+public abstract class GButton extends UI {
     private String text;
     private int textSize;
     private boolean isMouseDown;
     private boolean visible;
 
-    /**
-     * @param text the text that would be displayed on the button
-     * @param x the x position of the button
-     * @param y the y position of the button
-     */
     public GButton(String text, float x, float y, int size) {
-        super(0, x, y, 0, 0, false);
+        super(x, y, 0, 0, null);
         this.text = text;
         textSize = size;
         this.setSizeX(text.length() * textSize + textSize);
@@ -27,9 +21,6 @@ public abstract class GButton extends GObject {
         this.setVisible(true);
     }
 
-    /**
-     * @return true if the button is down (click) false if not
-     */
     public boolean isButtonDown() {
         if(getBounds().contains(Mouse.getX(), Display.getHeight() - Mouse.getY()) && Mouse.isButtonDown(0) && !isMouseDown) {
             isMouseDown = true;
@@ -52,6 +43,11 @@ public abstract class GButton extends GObject {
     }
 
     @Override
+    public void init() {
+
+    }
+
+    @Override
     public void update() {
         if(isButtonDown()) {
             onClick();
@@ -70,6 +66,11 @@ public abstract class GButton extends GObject {
             }
             GGraphics.renderText(text, x + sizeX / 2 - text.length() * textSize / 2, y + sizeY / 2 - textSize / 2, textSize, GDefines.BLACK);
         }
+    }
+
+    @Override
+    public void dispose() {
+
     }
 
     /**
