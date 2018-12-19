@@ -3,7 +3,6 @@ package fr.gamejam.papee.game;
 import fr.gamejam.papee.engine.state.CongratsState;
 import fr.gamejam.papee.engine.state.GameOverState;
 import fr.gamejam.papee.engine.fx.GParticle;
-import fr.gamejam.papee.engine.game.GGame;
 import fr.gamejam.papee.engine.objects.GObject;
 import fr.gamejam.papee.engine.state.State;
 import fr.gamejam.papee.engine.ui.UI;
@@ -11,7 +10,6 @@ import fr.gamejam.papee.engine.ui.UIBladder;
 import fr.gamejam.papee.engine.ui.UIMiniMap;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.engine.utils.IRunnable;
-import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.papee.Bladder;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.effect.Effect;
@@ -155,10 +153,10 @@ public class Game /*extends GGame*/ implements IRunnable {
 
         // Check if Bladder is full
         if (map.getPapee().getBladder().isFull()) {
-            GGame.window.start(new GameOverState());
+            State.getWindow().start(new GameOverState());
         }
         if (isWon()) {
-            GGame.window.start(new CongratsState());
+            State.getWindow().start(new CongratsState());
         }
 
         for (UI ui : listUI) {
@@ -175,8 +173,8 @@ public class Game /*extends GGame*/ implements IRunnable {
             }
         }
 
-        for (int i = 0; i < objects.size(); i++) {
-            GObject o = objects.get(i);
+        // Iterator?
+        for (GObject o : objects) {
             if ((o instanceof GParticle)) {
                 o.update();
                 if (((GParticle) o).getLifetime() < 0) {
@@ -194,8 +192,7 @@ public class Game /*extends GGame*/ implements IRunnable {
             ui.render();
         }
 
-        for (int i = 0; i < objects.size(); i++) {
-            GObject o = objects.get(i);
+        for (GObject o : objects) {
             if ((o instanceof GParticle)) {
                 o.render();
             }
