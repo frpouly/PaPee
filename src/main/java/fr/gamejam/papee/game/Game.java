@@ -11,6 +11,7 @@ import fr.gamejam.papee.engine.ui.UIBladder;
 import fr.gamejam.papee.engine.ui.UIMiniMap;
 import fr.gamejam.papee.engine.utils.GDefines;
 import fr.gamejam.papee.engine.utils.IRunnable;
+import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.papee.Bladder;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.effect.Effect;
@@ -26,13 +27,13 @@ import java.util.List;
 public class Game /*extends GGame*/ implements IRunnable {
     public static List<Effect> effects = new ArrayList<>();
     public static List<GObject> objects = new ArrayList<>();
+    private static boolean won = false;
 
     private Map map;
-    private Item itemViagra;
-
+    private Papee papee;
+    private Toilets toilets;
+    //private List<GObject> objects = new ArrayList<>();
     private List<UI> listUI = new ArrayList<>();
-
-    private static boolean won = false;
 
     public Game() {
         objects.clear();
@@ -49,7 +50,7 @@ public class Game /*extends GGame*/ implements IRunnable {
 
         map = new Map(papee, l.getTiles());
         toilets.setMap(map);
-        toilets.recreatePosition(); // C'est dégueu mais j'ai pas le temps de faire un truc potable
+        //toilets.recreatePosition(); // C'est dégueu mais j'ai pas le temps de faire un truc potable
 
         objects.add(toilets);
 
@@ -130,9 +131,22 @@ public class Game /*extends GGame*/ implements IRunnable {
         Game.won = won;
     }
 
+    private void setToiletsPosition() {
+        int x;
+        int y;
+
+        do {
+            x = (int)(Math.random() * GDefines.MAP_WIDTH);
+            y = (int)(Math.random() * GDefines.MAP_HEIGHT);
+        } while(getMap().getTiles()[x][y].isRigid());
+
+        toilets.setX(x * GDefines.OBJECT_WIDTH);
+        toilets.setY(y * GDefines.OBJECT_HEIGHT);
+    }
+
     @Override
     public void init() {
-
+        setToiletsPosition();
     }
 
     @Override
@@ -153,6 +167,16 @@ public class Game /*extends GGame*/ implements IRunnable {
 
         for (int i = 0; i < objects.size(); i++) {
             GObject o = objects.get(i);
+            o.update();
+            if (o instanceof GParticle) {
+                if (((GParticle) o).getLifetime() < 0) {
+                    objects.remove(o);
+                }
+            }
+        }
+
+        for (int i = 0; i < objects.size(); i++) {
+            GObject o = objects.get(i);
             if ((o instanceof GParticle)) {
                 o.update();
                 if (((GParticle) o).getLifetime() < 0) {
@@ -168,6 +192,13 @@ public class Game /*extends GGame*/ implements IRunnable {
 
         for (UI ui : listUI) {
             ui.render();
+        }
+
+        for (int i = 0; i < objects.size(); i++) {
+            GObject o = objects.get(i);
+            if ((o instanceof GParticle)) {
+                o.render();
+            }
         }
     }
 
