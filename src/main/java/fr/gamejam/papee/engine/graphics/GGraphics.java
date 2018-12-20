@@ -1,6 +1,6 @@
 package fr.gamejam.papee.engine.graphics;
 
-import fr.gamejam.papee.engine.utils.GTextures;
+import fr.gamejam.papee.util.GTextures;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 

@@ -1,7 +1,7 @@
 package fr.gamejam.papee.engine.ui;
 
 import fr.gamejam.papee.engine.graphics.GTexture;
-import fr.gamejam.papee.engine.utils.IRunnable;
+import fr.gamejam.papee.util.IRunnable;
 
 import java.awt.*;
 

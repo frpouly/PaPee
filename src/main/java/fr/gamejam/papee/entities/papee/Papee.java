@@ -1,11 +1,12 @@
 package fr.gamejam.papee.entities.papee;
 
+import fr.gamejam.papee.engine.entity.Collision;
+import fr.gamejam.papee.entities.Entity;
 import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.fx.GParticle;
-import fr.gamejam.papee.engine.utils.GTextures;
-import fr.gamejam.papee.engine.objects.GObject;
-import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.util.GTextures;
+import fr.gamejam.papee.util.GDefines;
 import fr.gamejam.papee.effect.Effect;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.entities.environment.items.Item;
@@ -19,7 +20,7 @@ import java.util.Iterator;
 
 import static org.lwjgl.opengl.GL11.*;
 
-public class Papee extends GObject {
+public class Papee extends Entity {
     public static final float BASE_SPEED = 1f;
 
     //0.93f
@@ -155,44 +156,46 @@ public class Papee extends GObject {
     }
 
     private boolean canPee() {
-        return (int)(Math.random() * 300) == 0;
+        return (int) (Math.random() * 300) == 0;
     }
 
     private void pee() {
-        if(canPee()) {
+        if (canPee()) {
             PeePuddle peePuddle = new PeePuddle(5, getX(), getY());
             getBladder().increasePeeLevel(-2);
         }
     }
 
     private void manageCollision() {
-        for(int i = 0; i < Game.objects.size(); i++) {
-            GObject o = Game.objects.get(i);
+        for (int i = 0; i < Game.entities.size(); i++) {
+            Entity o = Game.entities.get(i);
             if (o instanceof EnvironmentObject) {
                 EnvironmentObject obj = ((EnvironmentObject) o);
 
-                if (isCollision(obj)) {
+                if (Collision.isCollision(this, obj)) {
                     obj.effect(this);
                     if (o instanceof Item) {
-                        Game.objects.remove(o);
+                        Game.entities.remove(o);
                     }
                 }
             }
         }
-
     }
 
     private void manageEffect() {
         Iterator<Effect> iterator = Game.effects.iterator();
+
         while (iterator.hasNext()) {
             Effect effect = iterator.next();
+
             if (effect.getEffectTime() <= 0) {
                 effect.stopEffect();
                 iterator.remove();
             } else {
                 effect.setEffectTime(effect.getEffectTime() - 1);
-                if(effect.isGenerateParticle()) {
-                    for(int i = 0 ; i < 10; i++) {
+
+                if (effect.isGenerateParticle()) {
+                    for (int i = 0; i < 10; i++) {
                         GParticle p = new GParticle(1000, getX() + GDefines.OBJECT_WIDTH / 2, getY() + GDefines.OBJECT_HEIGHT / 2, 32);
                         Vector2f dir = new Vector2f(-getDx(), -getDy());
                         dir.normalise(dir);

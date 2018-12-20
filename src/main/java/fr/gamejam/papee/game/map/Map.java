@@ -1,10 +1,10 @@
 package fr.gamejam.papee.game.map;
 
+import fr.gamejam.papee.entities.Entity;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.fx.GParticle;
-import fr.gamejam.papee.engine.objects.GObject;
-import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.util.GDefines;
 import fr.gamejam.papee.entities.environment.EnvironmentObject;
 import fr.gamejam.papee.game.tile.Tile;
 import org.lwjgl.opengl.Display;
@@ -118,7 +118,7 @@ public class Map {
             }
         }
 
-        for (GObject o : Game.objects) {
+        for (Entity o : Game.entities) {
             if (o instanceof EnvironmentObject) {
                 o.update();
             }
@@ -148,7 +148,7 @@ public class Map {
             }
         }
 
-        for (GObject o : Game.objects) {
+        for (Entity o : Game.entities) {
             if (o instanceof EnvironmentObject || o instanceof GParticle) {
                 o.render();
             }

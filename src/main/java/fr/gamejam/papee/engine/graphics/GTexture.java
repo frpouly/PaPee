@@ -1,6 +1,5 @@
 package fr.gamejam.papee.engine.graphics;
 
-import fr.gamejam.papee.engine.utils.GDefines;
 import org.lwjgl.BufferUtils;
 
 import javax.imageio.ImageIO;

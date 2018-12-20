@@ -2,11 +2,12 @@ package fr.gamejam.papee.engine.state;
 
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.engine.utils.GTextures;
+import fr.gamejam.papee.util.GDefines;
+import fr.gamejam.papee.util.GTextures;
 import fr.gamejam.papee.game.level.Difficulty;
+import fr.gamejam.papee.translation.Translation;
 
-public class MenuState extends State {
+public class MenuState extends GState {
     private int width;
     private int height;
     private int startX;
@@ -15,7 +16,7 @@ public class MenuState extends State {
     private int endY;
 
     public MenuState() {
-        GButton play_easy = new GButton("EASY", getWindow().getWidth() / 5 - (4 * 16), getWindow().getHeight() / 2 - 16, 32) {
+        GButton play_easy = new GButton(Translation.get("game.difficulty.easy"), getWindow().getWidth() / 5 - (4 * 16), getWindow().getHeight() / 2 - 16, 32) {
             @Override
             public void onClick() {
                 GDefines.DIFFICULTY = Difficulty.EASY;
@@ -23,7 +24,7 @@ public class MenuState extends State {
             }
         };
 
-        GButton play_medium = new GButton("MEDIUM", getWindow().getWidth() / 2 - (6 * 32 / 2), getWindow().getHeight() / 2 - 16, 32) {
+        GButton play_medium = new GButton(Translation.get("game.difficulty.medium"), getWindow().getWidth() / 2 - (6 * 32 / 2), getWindow().getHeight() / 2 - 16, 32) {
             @Override
             public void onClick() {
                 GDefines.DIFFICULTY = Difficulty.MEDIUM;
@@ -31,7 +32,7 @@ public class MenuState extends State {
             }
         };
 
-        GButton play_hard = new GButton("HARD", getWindow().getWidth() - (9 * 32), getWindow().getHeight() / 2 - 16, 32) {
+        GButton play_hard = new GButton(Translation.get("game.difficulty.hard"), getWindow().getWidth() - (9 * 32), getWindow().getHeight() / 2 - 16, 32) {
             @Override
             public void onClick() {
                 GDefines.DIFFICULTY = Difficulty.HARD;

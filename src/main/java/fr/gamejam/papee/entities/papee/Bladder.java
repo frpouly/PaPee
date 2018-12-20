@@ -1,8 +1,8 @@
 package fr.gamejam.papee.entities.papee;
 
-import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.entities.Entity;
 
-public class Bladder extends GObject {
+public class Bladder extends Entity {
     public static final float INCREASE_PEE_LEVEL_BASE = 0.06f;
 
     private float peeStartLevel;

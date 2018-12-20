@@ -1,8 +1,8 @@
 package fr.gamejam.papee.game.level;
 
-import fr.gamejam.papee.engine.objects.GObject;
-import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.engine.utils.Registry;
+import fr.gamejam.papee.util.GDefines;
+import fr.gamejam.papee.util.Registry;
+import fr.gamejam.papee.entities.Entity;
 import fr.gamejam.papee.game.tile.Tile;
 
 import javax.json.Json;
@@ -39,7 +39,7 @@ public class LevelLoader {
             for (int j = 0; j < mapWidth; j++) {
                 id = layer.getJsonObject(0).getJsonArray("data").getInt(i * mapWidth + j);
 
-                GObject ctArgs = null;
+                Entity ctArgs = null;
                 //Tile t = new Tile(id - 1, i * 16, j * 16, true);
                 try {
                     Class c = registry.get(id);

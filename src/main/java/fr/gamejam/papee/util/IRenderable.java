@@ -1,4 +1,4 @@
-package fr.gamejam.papee.engine.utils;
+package fr.gamejam.papee.util;
 
 public interface IRenderable {
     void render();

@@ -1,6 +1,6 @@
 package fr.gamejam.papee.entities.environment.items;
 
-import fr.gamejam.papee.engine.utils.GTextures;
+import fr.gamejam.papee.util.GTextures;
 import fr.gamejam.papee.entities.papee.Bladder;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.effect.Effect;

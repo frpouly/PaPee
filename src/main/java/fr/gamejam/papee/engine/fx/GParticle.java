@@ -1,12 +1,12 @@
 package fr.gamejam.papee.engine.fx;
 
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.entities.Entity;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.Random;
 
-public class GParticle extends GObject {
+public class GParticle extends Entity {
     private Vector2f direction;
     private float lifetime;
 

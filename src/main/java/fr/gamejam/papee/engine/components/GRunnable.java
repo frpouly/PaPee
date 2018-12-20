@@ -1,8 +1,8 @@
 package fr.gamejam.papee.engine.components;
 
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.engine.state.State;
+import fr.gamejam.papee.util.GDefines;
+import fr.gamejam.papee.engine.state.GState;
 import org.lwjgl.opengl.Display;
 
 public class GRunnable {
@@ -10,7 +10,7 @@ public class GRunnable {
      * Main loop whit FPS calculator and frequencer
      * @param state that is included into the state
      */
-    public static void start(State state) {
+    public static void start(GState state) {
         long lastTime = System.nanoTime();
         double delta = 0.0;
         double ns = 1000000000.0 / GDefines.FPS;

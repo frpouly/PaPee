@@ -1,7 +1,7 @@
 package fr.gamejam.papee.entities.environment.obstacles;
 
-import fr.gamejam.papee.engine.utils.GTextures;
-import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.util.GTextures;
+import fr.gamejam.papee.util.GDefines;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.game.Game;
 

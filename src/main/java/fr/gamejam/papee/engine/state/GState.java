@@ -2,18 +2,18 @@ package fr.gamejam.papee.engine.state;
 
 import fr.gamejam.papee.engine.components.GWindow;
 import fr.gamejam.papee.engine.ui.UI;
-import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.engine.utils.IRunnable;
+import fr.gamejam.papee.util.GDefines;
+import fr.gamejam.papee.util.IRunnable;
 import fr.gamejam.papee.game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class State implements IRunnable {
+public abstract class GState implements IRunnable {
     private static GWindow window;
     private List<UI> listUI;
 
-    public State() {
+    public GState() {
         this.listUI = new ArrayList<>();
 
         if (getWindow() == null)
@@ -27,7 +27,7 @@ public abstract class State implements IRunnable {
     }
 
     public static void setWindow(GWindow window) {
-        State.window = window;
+        GState.window = window;
     }
 
     public List<UI> getListUI() {

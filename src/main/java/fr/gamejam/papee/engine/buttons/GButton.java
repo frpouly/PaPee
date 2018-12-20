@@ -2,7 +2,7 @@ package fr.gamejam.papee.engine.buttons;
 
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.ui.UI;
-import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.util.GDefines;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 

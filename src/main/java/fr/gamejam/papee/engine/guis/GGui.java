@@ -2,10 +2,10 @@ package fr.gamejam.papee.engine.guis;
 
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.objects.GObject;
-import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.util.GDefines;
+import fr.gamejam.papee.entities.Entity;
 
-public class GGui extends GObject {
+public class GGui extends Entity {
 
     private boolean visible;
     private GButton closeButton;

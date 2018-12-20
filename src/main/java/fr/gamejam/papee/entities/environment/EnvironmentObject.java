@@ -1,11 +1,11 @@
 package fr.gamejam.papee.entities.environment;
 
 import fr.gamejam.papee.effect.Effect;
-import fr.gamejam.papee.engine.objects.GObject;
+import fr.gamejam.papee.entities.Entity;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.game.map.Map;
 
-public abstract class EnvironmentObject extends GObject {
+public abstract class EnvironmentObject extends Entity {
     private Map map; // C'est dégueu mais j'ai pas le temps de faire un truc potable
     private Effect effect;
     private String name;

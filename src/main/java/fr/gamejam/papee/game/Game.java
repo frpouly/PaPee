@@ -3,13 +3,13 @@ package fr.gamejam.papee.game;
 import fr.gamejam.papee.engine.state.CongratsState;
 import fr.gamejam.papee.engine.state.GameOverState;
 import fr.gamejam.papee.engine.fx.GParticle;
-import fr.gamejam.papee.engine.objects.GObject;
-import fr.gamejam.papee.engine.state.State;
+import fr.gamejam.papee.engine.state.GState;
 import fr.gamejam.papee.engine.ui.UI;
 import fr.gamejam.papee.engine.ui.UIBladder;
 import fr.gamejam.papee.engine.ui.UIMiniMap;
-import fr.gamejam.papee.engine.utils.GDefines;
-import fr.gamejam.papee.engine.utils.IRunnable;
+import fr.gamejam.papee.util.GDefines;
+import fr.gamejam.papee.util.IRunnable;
+import fr.gamejam.papee.entities.Entity;
 import fr.gamejam.papee.entities.papee.Bladder;
 import fr.gamejam.papee.entities.papee.Papee;
 import fr.gamejam.papee.effect.Effect;
@@ -22,19 +22,18 @@ import fr.gamejam.papee.game.map.Map;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game /*extends GGame*/ implements IRunnable {
+public class Game implements IRunnable {
     public static List<Effect> effects = new ArrayList<>();
-    public static List<GObject> objects = new ArrayList<>();
+    public static List<Entity> entities = new ArrayList<>();
     private static boolean won = false;
 
     private Map map;
     private Papee papee;
     private Toilets toilets;
-    //private List<GObject> objects = new ArrayList<>();
     private List<UI> listUI = new ArrayList<>();
 
     public Game() {
-        objects.clear();
+        entities.clear();
 
         String[] levels = new String[]{
                 "/levels/level_1.json",
@@ -50,7 +49,7 @@ public class Game /*extends GGame*/ implements IRunnable {
         toilets.setMap(map);
         //toilets.recreatePosition(); // C'est dégueu mais j'ai pas le temps de faire un truc potable
 
-        objects.add(toilets);
+        entities.add(toilets);
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 4; i++) {
             int x = 0;
@@ -59,8 +58,8 @@ public class Game /*extends GGame*/ implements IRunnable {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            GObject o = new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
-            objects.add(o);
+            Entity o = new PeePuddle(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            entities.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 7; i++) {
@@ -70,8 +69,8 @@ public class Game /*extends GGame*/ implements IRunnable {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            GObject o = new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
-            objects.add(o);
+            Entity o = new ItemNitro(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            entities.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 6; i++) {
@@ -81,8 +80,8 @@ public class Game /*extends GGame*/ implements IRunnable {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            GObject o = new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
-            objects.add(o);
+            Entity o = new ItemBeer(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            entities.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 16; i++) {
@@ -92,8 +91,8 @@ public class Game /*extends GGame*/ implements IRunnable {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            GObject o = new ItemWhisky(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
-            objects.add(o);
+            Entity o = new ItemWhisky(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            entities.add(o);
         }
 
         for (int i = 0; i < GDefines.MAP_WIDTH / 8; i++) {
@@ -103,8 +102,8 @@ public class Game /*extends GGame*/ implements IRunnable {
                 x = (int) (Math.random() * GDefines.MAP_WIDTH);
                 y = (int) (Math.random() * GDefines.MAP_HEIGHT);
             } while (map.getTiles()[x][y].isRigid());
-            GObject o = new ItemViagra(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
-            objects.add(o);
+            Entity o = new ItemViagra(1, x * GDefines.OBJECT_WIDTH, y * GDefines.OBJECT_HEIGHT);
+            entities.add(o);
         }
 
         papee.setMap(map);
@@ -153,32 +152,32 @@ public class Game /*extends GGame*/ implements IRunnable {
 
         // Check if Bladder is full
         if (map.getPapee().getBladder().isFull()) {
-            State.getWindow().start(new GameOverState());
+            GState.getWindow().start(new GameOverState());
         }
         if (isWon()) {
-            State.getWindow().start(new CongratsState());
+            GState.getWindow().start(new CongratsState());
         }
 
         for (UI ui : listUI) {
             ui.update();
         }
 
-        for (int i = 0; i < objects.size(); i++) {
-            GObject o = objects.get(i);
+        for (int i = 0; i < entities.size(); i++) {
+            Entity o = entities.get(i);
             o.update();
             if (o instanceof GParticle) {
                 if (((GParticle) o).getLifetime() < 0) {
-                    objects.remove(o);
+                    entities.remove(o);
                 }
             }
         }
 
         // Iterator?
-        for (GObject o : objects) {
+        for (Entity o : entities) {
             if ((o instanceof GParticle)) {
                 o.update();
                 if (((GParticle) o).getLifetime() < 0) {
-                    objects.remove(o);
+                    entities.remove(o);
                 }
             }
         }
@@ -192,7 +191,7 @@ public class Game /*extends GGame*/ implements IRunnable {
             ui.render();
         }
 
-        for (GObject o : objects) {
+        for (Entity o : entities) {
             if ((o instanceof GParticle)) {
                 o.render();
             }

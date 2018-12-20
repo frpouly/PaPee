@@ -2,11 +2,10 @@ package fr.gamejam.papee.engine.state;
 
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.engine.utils.GDefines;
+import fr.gamejam.papee.util.GDefines;
 
-public class CongratsState extends State {
+public class CongratsState extends GState {
     public CongratsState() {
-        //objects.clear();
         GButton menu = new GButton("MENU", getWindow().getWidth()/2 - 80, 400, 32) {
             @Override
             public void onClick() {

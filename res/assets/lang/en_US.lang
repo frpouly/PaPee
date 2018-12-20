@@ -2,3 +2,9 @@ item.beer.name=Beer
 item.glasses.name=Glasses
 item.nitro.name=Nitro
 item.viagra.name=Viagra
+
+game.difficulty.easy=Easy
+game.difficulty.medium=Medium
+game.difficulty.hard=Hard
+
+minimap.toilets.name=Toilets
