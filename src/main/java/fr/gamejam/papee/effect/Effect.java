@@ -12,18 +12,20 @@ public class Effect {
     private boolean generateParticle;
     private GTexture particleName;
 
-    public Effect(int effectTime, GTexture particleName) {
+    public Effect(int effectTime) {
+        this(effectTime, null);   
+    }
+    
+    public Effect(int effectTime, GTexture particleTexture) {
         setEffectTime(effectTime);
-        this.particleName = particleName;
-        if(particleName != null) {
-            setGenerateParticle(true);
-        } else {
-            setGenerateParticle(false);
-        }
-
+        this.particleName = particleTexture;
+        
+        setGenerateParticle(particleTexture != null);
         Game.effects.add(this);
     }
 
+    public
+    
     public int getEffectTime() {
         return effectTime;
     }
