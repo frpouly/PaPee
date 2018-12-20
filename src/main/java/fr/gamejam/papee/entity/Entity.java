@@ -1,4 +1,4 @@
-package fr.gamejam.papee.entities;
+package fr.gamejam.papee.entity;
 
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.graphics.GTexture;

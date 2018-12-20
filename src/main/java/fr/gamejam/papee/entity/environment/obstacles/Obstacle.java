@@ -1,6 +1,6 @@
-package fr.gamejam.papee.entities.environment.obstacles;
+package fr.gamejam.papee.entity.environment.obstacles;
 
-import fr.gamejam.papee.entities.environment.EnvironmentObject;
+import fr.gamejam.papee.entity.environment.EnvironmentObject;
 
 public abstract class Obstacle extends EnvironmentObject {
     public Obstacle(int ID, float x, float y, String name) {

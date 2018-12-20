@@ -1,11 +1,11 @@
 package fr.gamejam.papee.game.map;
 
-import fr.gamejam.papee.entities.Entity;
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.Entity;
+import fr.gamejam.papee.entity.papee.Papee;
 import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.util.GDefines;
-import fr.gamejam.papee.entities.environment.EnvironmentObject;
+import fr.gamejam.papee.entity.environment.EnvironmentObject;
 import fr.gamejam.papee.game.tile.Tile;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;

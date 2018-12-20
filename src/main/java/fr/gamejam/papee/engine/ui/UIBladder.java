@@ -3,7 +3,7 @@ package fr.gamejam.papee.engine.ui;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.util.GTextures;
 import fr.gamejam.papee.util.GDefines;
-import fr.gamejam.papee.entities.papee.Bladder;
+import fr.gamejam.papee.entity.papee.Bladder;
 import fr.gamejam.papee.game.level.Difficulty;
 
 public class UIBladder extends UI {

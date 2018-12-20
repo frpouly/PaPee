@@ -1,6 +1,6 @@
-package fr.gamejam.papee.entities.papee;
+package fr.gamejam.papee.entity.papee;
 
-import fr.gamejam.papee.entities.Entity;
+import fr.gamejam.papee.entity.Entity;
 
 public class Bladder extends Entity {
     public static final float INCREASE_PEE_LEVEL_BASE = 0.06f;

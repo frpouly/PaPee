@@ -1,4 +1,4 @@
-package fr.gamejam.papee.engine.state;
+package fr.gamejam.papee.state;
 
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.graphics.GGraphics;
@@ -7,7 +7,7 @@ import fr.gamejam.papee.util.GTextures;
 import fr.gamejam.papee.game.level.Difficulty;
 import fr.gamejam.papee.translation.Translation;
 
-public class MenuState extends GState {
+public class MenuState extends State {
     private int width;
     private int height;
     private int startX;
@@ -20,7 +20,8 @@ public class MenuState extends GState {
             @Override
             public void onClick() {
                 GDefines.DIFFICULTY = Difficulty.EASY;
-                getWindow().start(new GameState());
+                getWindow().setState(new GameState());
+                getWindow().run();
             }
         };
 
@@ -28,7 +29,8 @@ public class MenuState extends GState {
             @Override
             public void onClick() {
                 GDefines.DIFFICULTY = Difficulty.MEDIUM;
-                getWindow().start(new GameState());
+                getWindow().setState(new GameState());
+                getWindow().run();
             }
         };
 
@@ -36,7 +38,8 @@ public class MenuState extends GState {
             @Override
             public void onClick() {
                 GDefines.DIFFICULTY = Difficulty.HARD;
-                getWindow().start(new GameState());
+                getWindow().setState(new GameState());
+                getWindow().run();
             }
         };
 

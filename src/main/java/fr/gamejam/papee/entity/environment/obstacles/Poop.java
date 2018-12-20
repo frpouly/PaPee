@@ -1,6 +1,6 @@
-package fr.gamejam.papee.entities.environment.obstacles;
+package fr.gamejam.papee.entity.environment.obstacles;
 
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.papee.Papee;
 
 public class Poop extends Obstacle {
     public Poop(int ID, float x, float y) {

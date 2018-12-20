@@ -3,7 +3,7 @@ package fr.gamejam.papee.engine.guis;
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.util.GDefines;
-import fr.gamejam.papee.entities.Entity;
+import fr.gamejam.papee.entity.Entity;
 
 public class GGui extends Entity {
 

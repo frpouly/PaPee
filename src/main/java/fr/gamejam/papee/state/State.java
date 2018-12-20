@@ -1,5 +1,6 @@
-package fr.gamejam.papee.engine.state;
+package fr.gamejam.papee.state;
 
+import fr.gamejam.papee.Program;
 import fr.gamejam.papee.engine.components.GWindow;
 import fr.gamejam.papee.engine.ui.UI;
 import fr.gamejam.papee.util.GDefines;
@@ -9,25 +10,23 @@ import fr.gamejam.papee.game.Game;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class GState implements IRunnable {
-    private static GWindow window;
+public abstract class State implements IRunnable {
+   // private static GWindow window;
     private List<UI> listUI;
 
-    public GState() {
+    public State() {
         this.listUI = new ArrayList<>();
 
+        /*
         if (getWindow() == null)
             setWindow(new GWindow(GDefines.WIDTH, GDefines.HEIGHT, GDefines.TITLE));
+        */
 
         Game.setWon(false);
     }
 
     public static GWindow getWindow() {
-        return window;
-    }
-
-    public static void setWindow(GWindow window) {
-        GState.window = window;
+        return Program.getWindow();
     }
 
     public List<UI> getListUI() {

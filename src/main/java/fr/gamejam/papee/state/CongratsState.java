@@ -1,15 +1,16 @@
-package fr.gamejam.papee.engine.state;
+package fr.gamejam.papee.state;
 
 import fr.gamejam.papee.engine.buttons.GButton;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.util.GDefines;
 
-public class CongratsState extends GState {
+public class CongratsState extends State {
     public CongratsState() {
         GButton menu = new GButton("MENU", getWindow().getWidth()/2 - 80, 400, 32) {
             @Override
             public void onClick() {
-                getWindow().start(new MenuState());
+                getWindow().setState(new MenuState());
+                getWindow().run();
             }
         };
 

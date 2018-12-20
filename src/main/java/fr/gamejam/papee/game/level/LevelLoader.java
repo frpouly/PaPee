@@ -2,7 +2,7 @@ package fr.gamejam.papee.game.level;
 
 import fr.gamejam.papee.util.GDefines;
 import fr.gamejam.papee.util.Registry;
-import fr.gamejam.papee.entities.Entity;
+import fr.gamejam.papee.entity.Entity;
 import fr.gamejam.papee.game.tile.Tile;
 
 import javax.json.Json;

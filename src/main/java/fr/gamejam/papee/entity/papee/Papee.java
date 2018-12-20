@@ -1,16 +1,16 @@
-package fr.gamejam.papee.entities.papee;
+package fr.gamejam.papee.entity.papee;
 
 import fr.gamejam.papee.engine.entity.Collision;
-import fr.gamejam.papee.entities.Entity;
+import fr.gamejam.papee.entity.Entity;
 import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.engine.fx.GParticle;
 import fr.gamejam.papee.util.GTextures;
 import fr.gamejam.papee.util.GDefines;
 import fr.gamejam.papee.effect.Effect;
-import fr.gamejam.papee.entities.environment.EnvironmentObject;
-import fr.gamejam.papee.entities.environment.items.Item;
-import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
+import fr.gamejam.papee.entity.environment.EnvironmentObject;
+import fr.gamejam.papee.entity.environment.items.Item;
+import fr.gamejam.papee.entity.environment.obstacles.PeePuddle;
 import fr.gamejam.papee.game.tile.Tile;
 import fr.gamejam.papee.game.map.Map;
 import org.lwjgl.input.Keyboard;

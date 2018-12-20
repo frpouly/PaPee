@@ -1,8 +1,8 @@
 package fr.gamejam.papee.util;
 
-import fr.gamejam.papee.entities.Entity;
-import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
-import fr.gamejam.papee.entities.environment.obstacles.Poop;
+import fr.gamejam.papee.entity.Entity;
+import fr.gamejam.papee.entity.environment.obstacles.PeePuddle;
+import fr.gamejam.papee.entity.environment.obstacles.Poop;
 
 import java.util.HashMap;
 import java.util.Map;

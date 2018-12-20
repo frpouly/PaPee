@@ -3,7 +3,7 @@ package fr.gamejam.papee.game.tile;
 import fr.gamejam.papee.engine.graphics.GGraphics;
 import fr.gamejam.papee.util.GTextures;
 import fr.gamejam.papee.util.GDefines;
-import fr.gamejam.papee.entities.Entity;
+import fr.gamejam.papee.entity.Entity;
 
 public class Tile extends Entity {
     public Tile(int ID, float x, float y, boolean rigid) {

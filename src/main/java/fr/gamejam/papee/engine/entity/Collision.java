@@ -1,7 +1,7 @@
 package fr.gamejam.papee.engine.entity;
 
 import fr.gamejam.papee.util.GDefines;
-import fr.gamejam.papee.entities.Entity;
+import fr.gamejam.papee.entity.Entity;
 
 import java.awt.*;
 

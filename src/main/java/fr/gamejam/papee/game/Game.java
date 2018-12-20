@@ -1,21 +1,23 @@
 package fr.gamejam.papee.game;
 
-import fr.gamejam.papee.engine.state.CongratsState;
-import fr.gamejam.papee.engine.state.GameOverState;
+import fr.gamejam.papee.Program;
+import fr.gamejam.papee.state.CongratsState;
+import fr.gamejam.papee.state.GameOverState;
 import fr.gamejam.papee.engine.fx.GParticle;
-import fr.gamejam.papee.engine.state.GState;
+import fr.gamejam.papee.state.GameState;
+import fr.gamejam.papee.state.State;
 import fr.gamejam.papee.engine.ui.UI;
 import fr.gamejam.papee.engine.ui.UIBladder;
 import fr.gamejam.papee.engine.ui.UIMiniMap;
 import fr.gamejam.papee.util.GDefines;
 import fr.gamejam.papee.util.IRunnable;
-import fr.gamejam.papee.entities.Entity;
-import fr.gamejam.papee.entities.papee.Bladder;
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.Entity;
+import fr.gamejam.papee.entity.papee.Bladder;
+import fr.gamejam.papee.entity.papee.Papee;
 import fr.gamejam.papee.effect.Effect;
-import fr.gamejam.papee.entities.environment.items.*;
-import fr.gamejam.papee.entities.environment.obstacles.PeePuddle;
-import fr.gamejam.papee.entities.environment.obstacles.Toilets;
+import fr.gamejam.papee.entity.environment.items.*;
+import fr.gamejam.papee.entity.environment.obstacles.PeePuddle;
+import fr.gamejam.papee.entity.environment.obstacles.Toilets;
 import fr.gamejam.papee.game.level.LevelLoader;
 import fr.gamejam.papee.game.map.Map;
 
@@ -152,10 +154,12 @@ public class Game implements IRunnable {
 
         // Check if Bladder is full
         if (map.getPapee().getBladder().isFull()) {
-            GState.getWindow().start(new GameOverState());
+            Program.getWindow().setState(new GameOverState());
+            Program.getWindow().run();
         }
         if (isWon()) {
-            GState.getWindow().start(new CongratsState());
+            Program.getWindow().setState(new CongratsState());
+            Program.getWindow().run();
         }
 
         for (UI ui : listUI) {

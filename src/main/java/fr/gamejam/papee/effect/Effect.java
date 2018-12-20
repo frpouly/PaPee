@@ -1,6 +1,6 @@
 package fr.gamejam.papee.effect;
 
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.papee.Papee;
 import fr.gamejam.papee.game.Game;
 import fr.gamejam.papee.engine.graphics.GTexture;
 

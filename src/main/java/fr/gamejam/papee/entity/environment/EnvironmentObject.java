@@ -1,8 +1,8 @@
-package fr.gamejam.papee.entities.environment;
+package fr.gamejam.papee.entity.environment;
 
 import fr.gamejam.papee.effect.Effect;
-import fr.gamejam.papee.entities.Entity;
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.Entity;
+import fr.gamejam.papee.entity.papee.Papee;
 import fr.gamejam.papee.game.map.Map;
 
 public abstract class EnvironmentObject extends Entity {

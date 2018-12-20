@@ -1,7 +1,7 @@
 package fr.gamejam.papee.engine.fx;
 
 import fr.gamejam.papee.engine.graphics.GGraphics;
-import fr.gamejam.papee.entities.Entity;
+import fr.gamejam.papee.entity.Entity;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.util.Random;

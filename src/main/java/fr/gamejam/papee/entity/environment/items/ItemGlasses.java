@@ -1,6 +1,6 @@
-package fr.gamejam.papee.entities.environment.items;
+package fr.gamejam.papee.entity.environment.items;
 
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.papee.Papee;
 
 public class ItemGlasses extends Item {
     public ItemGlasses(int ID, float x, float y) {

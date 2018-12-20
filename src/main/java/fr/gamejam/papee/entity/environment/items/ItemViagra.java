@@ -1,8 +1,8 @@
-package fr.gamejam.papee.entities.environment.items;
+package fr.gamejam.papee.entity.environment.items;
 
 import fr.gamejam.papee.util.GTextures;
-import fr.gamejam.papee.entities.papee.Bladder;
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.papee.Bladder;
+import fr.gamejam.papee.entity.papee.Papee;
 import fr.gamejam.papee.effect.Effect;
 
 public class ItemViagra extends Item {

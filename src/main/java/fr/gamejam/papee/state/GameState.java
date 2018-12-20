@@ -1,8 +1,8 @@
-package fr.gamejam.papee.engine.state;
+package fr.gamejam.papee.state;
 
 import fr.gamejam.papee.game.Game;
 
-public class GameState extends GState {
+public class GameState extends State {
     private Game game;
 
     public GameState() {

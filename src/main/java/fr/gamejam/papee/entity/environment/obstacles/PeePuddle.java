@@ -1,7 +1,7 @@
-package fr.gamejam.papee.entities.environment.obstacles;
+package fr.gamejam.papee.entity.environment.obstacles;
 
 import fr.gamejam.papee.util.GTextures;
-import fr.gamejam.papee.entities.papee.Papee;
+import fr.gamejam.papee.entity.papee.Papee;
 import fr.gamejam.papee.effect.Effect;
 
 public class PeePuddle extends Obstacle {
