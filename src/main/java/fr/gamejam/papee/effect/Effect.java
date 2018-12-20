@@ -23,8 +23,6 @@ public class Effect {
         setGenerateParticle(particleTexture != null);
         Game.effects.add(this);
     }
-
-    public
     
     public int getEffectTime() {
         return effectTime;
